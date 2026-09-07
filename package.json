@@ -1,0 +1,39 @@
+{
+  "name": "chemistrylab-os",
+  "private": true,
+  "version": "0.1.0",
+  "description": "An open, declarative platform for interactive chemistry education.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "packageManager": "pnpm@11.3.0",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "postinstall": "tsx scripts/generate-elements.ts && tsx packages/chemspec/scripts/generate-json-schema.ts",
+    "build": "turbo run build",
+    "dev": "turbo run dev --parallel",
+    "lint": "turbo run lint",
+    "typecheck": "turbo run typecheck",
+    "test": "turbo run test",
+    "test:e2e": "turbo run test:e2e",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "validate:data": "tsx scripts/validate-data.ts",
+    "generate:schemas": "pnpm --filter @chemistrylab/chemspec generate:schemas",
+    "generate:elements": "tsx scripts/generate-elements.ts",
+    "clean": "turbo run clean && rm -rf node_modules"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "@types/node": "^22.10.2",
+    "eslint": "^9.17.0",
+    "eslint-plugin-react-hooks": "^5.1.0",
+    "prettier": "^3.4.2",
+    "tsx": "^4.19.2",
+    "turbo": "^2.3.3",
+    "typescript": "^5.7.2",
+    "typescript-eslint": "^8.19.0",
+    "yaml": "^2.6.1"
+  }
+}

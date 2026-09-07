@@ -1,0 +1,7 @@
+dist
+.turbo
+node_modules
+pnpm-lock.yaml
+packages/chemspec/schemas
+packages/core/src/generated
+coverage
