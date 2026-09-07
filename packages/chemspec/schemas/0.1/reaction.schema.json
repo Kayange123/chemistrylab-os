@@ -1,263 +1,261 @@
 {
-  "$ref": "#/definitions/Reaction",
-  "definitions": {
-    "Reaction": {
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "schemaVersion": {
+      "default": "0.1",
+      "type": "string",
+      "const": "0.1"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+    },
+    "titleKey": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*(\\.[a-z0-9]+(-[a-z0-9]+)*)+$"
+    },
+    "equation": {
       "type": "object",
       "properties": {
-        "schemaVersion": {
-          "type": "string",
-          "const": "0.1",
-          "default": "0.1"
-        },
-        "id": {
-          "type": "string",
-          "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
-        },
-        "titleKey": {
-          "type": "string",
-          "pattern": "^[a-z0-9]+(-[a-z0-9]+)*(\\.[a-z0-9]+(-[a-z0-9]+)*)+$"
-        },
-        "equation": {
-          "type": "object",
-          "properties": {
-            "reactants": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "molecule": {
-                    "type": "string",
-                    "minLength": 1,
-                    "pattern": "^[A-Za-z0-9()]+(\\^[0-9]*[+-])?$"
-                  },
-                  "coefficient": {
-                    "type": "integer",
-                    "minimum": 1,
-                    "default": 1
-                  }
-                },
-                "required": [
-                  "molecule"
-                ],
-                "additionalProperties": false
-              },
-              "minItems": 1
-            },
-            "products": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "molecule": {
-                    "type": "string",
-                    "minLength": 1,
-                    "pattern": "^[A-Za-z0-9()]+(\\^[0-9]*[+-])?$"
-                  },
-                  "coefficient": {
-                    "type": "integer",
-                    "minimum": 1,
-                    "default": 1
-                  }
-                },
-                "required": [
-                  "molecule"
-                ],
-                "additionalProperties": false
-              },
-              "minItems": 1
-            }
-          },
-          "required": [
-            "reactants",
-            "products"
-          ],
-          "additionalProperties": false
-        },
-        "reaction": {
-          "type": "object",
-          "properties": {
-            "family": {
-              "type": "string",
-              "enum": [
-                "synthesis",
-                "decomposition",
-                "combustion",
-                "single-displacement",
-                "double-displacement",
-                "acid-base",
-                "precipitation",
-                "redox",
-                "other"
-              ]
-            },
-            "reversible": {
-              "type": "boolean",
-              "default": false
-            },
-            "thermalEffect": {
-              "type": "string",
-              "enum": [
-                "exothermic",
-                "endothermic",
-                "thermoneutral",
-                "unknown"
-              ]
-            }
-          },
-          "required": [
-            "family",
-            "thermalEffect"
-          ],
-          "additionalProperties": false
-        },
-        "conditions": {
-          "type": "object",
-          "properties": {
-            "ignitionRequired": {
-              "type": "boolean",
-              "default": false
-            },
-            "defaultTemperatureCelsius": {
-              "type": "number"
-            }
-          },
-          "additionalProperties": false,
-          "default": {
-            "ignitionRequired": false
-          }
-        },
-        "learning": {
-          "type": "object",
-          "properties": {
-            "conceptKeys": {
-              "type": "array",
-              "items": {
+        "reactants": {
+          "minItems": 1,
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "molecule": {
                 "type": "string",
-                "pattern": "^[a-z0-9]+(-[a-z0-9]+)*(\\.[a-z0-9]+(-[a-z0-9]+)*)+$"
+                "minLength": 1,
+                "pattern": "^[A-Za-z0-9()]+(\\^[0-9]*[+-])?$"
               },
-              "minItems": 1,
-              "description": "e.g. \"concept.stoichiometry\"."
-            }
-          },
-          "required": [
-            "conceptKeys"
-          ],
-          "additionalProperties": false
-        },
-        "accessibility": {
-          "type": "object",
-          "properties": {
-            "descriptionKey": {
-              "type": "string",
-              "pattern": "^[a-z0-9]+(-[a-z0-9]+)*(\\.[a-z0-9]+(-[a-z0-9]+)*)+$",
-              "description": "i18n key resolving to a plain-language, colour- and motion-independent description."
-            }
-          },
-          "required": [
-            "descriptionKey"
-          ],
-          "additionalProperties": false
-        },
-        "visualization": {
-          "type": "object",
-          "properties": {
-            "particles": {
-              "type": "boolean",
-              "default": true
+              "coefficient": {
+                "default": 1,
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 9007199254740991
+              }
             },
-            "bonds": {
-              "type": "boolean",
-              "default": true
-            },
-            "energyProfile": {
-              "type": "boolean",
-              "default": false
-            }
-          },
-          "additionalProperties": false,
-          "default": {
-            "particles": true,
-            "bonds": true,
-            "energyProfile": false
+            "required": [
+              "molecule"
+            ],
+            "additionalProperties": false
           }
         },
-        "provenance": {
-          "type": "object",
-          "properties": {
-            "sources": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "organization": {
-                    "type": "string",
-                    "minLength": 1
-                  },
-                  "reference": {
-                    "type": "string",
-                    "minLength": 1,
-                    "description": "Title, DOI, URL, or textbook citation."
-                  },
-                  "accessedAt": {
-                    "type": "string",
-                    "format": "date"
-                  }
-                },
-                "required": [
-                  "organization",
-                  "reference"
-                ],
-                "additionalProperties": false
+        "products": {
+          "minItems": 1,
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "molecule": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "^[A-Za-z0-9()]+(\\^[0-9]*[+-])?$"
               },
-              "default": []
-            },
-            "review": {
-              "type": "object",
-              "properties": {
-                "scientificStatus": {
-                  "type": "string",
-                  "enum": [
-                    "unverified",
-                    "in-review",
-                    "verified",
-                    "disputed"
-                  ],
-                  "default": "unverified"
-                },
-                "reviewedBy": {
-                  "type": "string",
-                  "description": "GitHub handle of the reviewing chemist."
-                },
-                "lastVerifiedAt": {
-                  "type": "string",
-                  "format": "date"
-                }
-              },
-              "additionalProperties": false,
-              "default": {
-                "scientificStatus": "unverified"
+              "coefficient": {
+                "default": 1,
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 9007199254740991
               }
-            }
-          },
-          "additionalProperties": false,
-          "default": {
-            "sources": [],
-            "review": {
-              "scientificStatus": "unverified"
-            }
+            },
+            "required": [
+              "molecule"
+            ],
+            "additionalProperties": false
           }
         }
       },
       "required": [
-        "id",
-        "titleKey",
-        "equation",
-        "reaction",
-        "learning",
-        "accessibility"
+        "reactants",
+        "products"
       ],
       "additionalProperties": false
+    },
+    "reaction": {
+      "type": "object",
+      "properties": {
+        "family": {
+          "type": "string",
+          "enum": [
+            "synthesis",
+            "decomposition",
+            "combustion",
+            "single-displacement",
+            "double-displacement",
+            "acid-base",
+            "precipitation",
+            "redox",
+            "other"
+          ]
+        },
+        "reversible": {
+          "default": false,
+          "type": "boolean"
+        },
+        "thermalEffect": {
+          "type": "string",
+          "enum": [
+            "exothermic",
+            "endothermic",
+            "thermoneutral",
+            "unknown"
+          ]
+        }
+      },
+      "required": [
+        "family",
+        "thermalEffect"
+      ],
+      "additionalProperties": false
+    },
+    "conditions": {
+      "default": {
+        "ignitionRequired": false
+      },
+      "type": "object",
+      "properties": {
+        "ignitionRequired": {
+          "default": false,
+          "type": "boolean"
+        },
+        "defaultTemperatureCelsius": {
+          "type": "number"
+        }
+      },
+      "additionalProperties": false
+    },
+    "learning": {
+      "type": "object",
+      "properties": {
+        "conceptKeys": {
+          "minItems": 1,
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(-[a-z0-9]+)*(\\.[a-z0-9]+(-[a-z0-9]+)*)+$"
+          },
+          "description": "e.g. \"concept.stoichiometry\"."
+        }
+      },
+      "required": [
+        "conceptKeys"
+      ],
+      "additionalProperties": false
+    },
+    "accessibility": {
+      "type": "object",
+      "properties": {
+        "descriptionKey": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(-[a-z0-9]+)*(\\.[a-z0-9]+(-[a-z0-9]+)*)+$",
+          "description": "i18n key resolving to a plain-language, colour- and motion-independent description."
+        }
+      },
+      "required": [
+        "descriptionKey"
+      ],
+      "additionalProperties": false
+    },
+    "visualization": {
+      "default": {
+        "particles": true,
+        "bonds": true,
+        "energyProfile": false
+      },
+      "type": "object",
+      "properties": {
+        "particles": {
+          "default": true,
+          "type": "boolean"
+        },
+        "bonds": {
+          "default": true,
+          "type": "boolean"
+        },
+        "energyProfile": {
+          "default": false,
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "provenance": {
+      "default": {
+        "sources": [],
+        "review": {
+          "scientificStatus": "unverified"
+        }
+      },
+      "type": "object",
+      "properties": {
+        "sources": {
+          "default": [],
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "organization": {
+                "type": "string",
+                "minLength": 1
+              },
+              "reference": {
+                "type": "string",
+                "minLength": 1,
+                "description": "Title, DOI, URL, or textbook citation."
+              },
+              "accessedAt": {
+                "type": "string",
+                "format": "date",
+                "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))$"
+              }
+            },
+            "required": [
+              "organization",
+              "reference"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "review": {
+          "default": {
+            "scientificStatus": "unverified"
+          },
+          "type": "object",
+          "properties": {
+            "scientificStatus": {
+              "default": "unverified",
+              "type": "string",
+              "enum": [
+                "unverified",
+                "in-review",
+                "verified",
+                "disputed"
+              ]
+            },
+            "reviewedBy": {
+              "description": "GitHub handle of the reviewing chemist.",
+              "type": "string"
+            },
+            "lastVerifiedAt": {
+              "type": "string",
+              "format": "date",
+              "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))$"
+            }
+          },
+          "additionalProperties": false
+        }
+      }
     }
   },
-  "$schema": "http://json-schema.org/draft-07/schema#"
+  "required": [
+    "id",
+    "titleKey",
+    "equation",
+    "reaction",
+    "learning",
+    "accessibility"
+  ],
+  "additionalProperties": false
 }

@@ -63,4 +63,17 @@ describe('reactionSchema', () => {
       reactionSchema.parse({ ...validReaction, titleKey: 'Hydrogen Combustion' }),
     ).toThrow();
   });
+
+  it('rejects an unknown top-level property instead of silently dropping it', () => {
+    expect(() => reactionSchema.parse({ ...validReaction, typoedField: true })).toThrow();
+  });
+
+  it('rejects an unknown nested property', () => {
+    expect(() =>
+      reactionSchema.parse({
+        ...validReaction,
+        reaction: { ...validReaction.reaction, typoedField: true },
+      }),
+    ).toThrow();
+  });
 });

@@ -12,7 +12,7 @@ import { i18nKeySchema } from './i18n.js';
  * model — shipping them now would mean fabricating precision we haven't
  * sourced.
  */
-export const elementSchema = z.object({
+export const elementSchema = z.strictObject({
   schemaVersion: z.literal(CHEMSPEC_VERSION).default(CHEMSPEC_VERSION),
   symbol: z.string().regex(/^[A-Z][a-z]?$/, 'Element symbols are 1-2 characters, e.g. "H", "Na".'),
   atomicNumber: z.number().int().min(1).max(118),

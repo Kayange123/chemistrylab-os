@@ -58,6 +58,14 @@ pnpm --filter @chemistrylab/chemspec generate:schemas
 CI runs this and fails if `schemas/` would change but wasn't regenerated —
 the TypeScript source and the committed JSON Schema must never drift.
 
+Generation uses Zod's own built-in `z.toJSONSchema` (no separate
+conversion library) with `io: 'input'`, so a field with `.default()` is
+correctly left out of `required` — that's what a document author actually
+has to supply. Every object schema in this package uses
+`z.strictObject()`, not `z.object()`, specifically so `additionalProperties:
+false` in the generated schema is true to what Zod itself enforces: a
+typo'd field name is rejected, not silently dropped.
+
 ## Versioning
 
 `CHEMSPEC_VERSION` (currently `"0.1"`) is a schema version, separate from

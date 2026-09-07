@@ -13,7 +13,7 @@ import { provenanceSchema } from './provenance.js';
  * the reaction engine treats it as a starting point, not a guarantee — see
  * CHEM001 in docs/error-codes.md.
  */
-export const equationTermSchema = z.object({
+export const equationTermSchema = z.strictObject({
   molecule: z
     .string()
     .min(1)
@@ -23,7 +23,7 @@ export const equationTermSchema = z.object({
 
 export type EquationTerm = z.infer<typeof equationTermSchema>;
 
-export const equationSchema = z.object({
+export const equationSchema = z.strictObject({
   reactants: z.array(equationTermSchema).min(1),
   products: z.array(equationTermSchema).min(1),
 });
@@ -59,14 +59,14 @@ export type ThermalEffect = z.infer<typeof thermalEffectSchema>;
  * catalyst, surface area, and pH are named in ROADMAP.md as Phase 4 work
  * and can be added without breaking existing entries.
  */
-export const conditionsSchema = z.object({
+export const conditionsSchema = z.strictObject({
   ignitionRequired: z.boolean().default(false),
   defaultTemperatureCelsius: z.number().optional(),
 });
 
 export type Conditions = z.infer<typeof conditionsSchema>;
 
-export const learningSchema = z.object({
+export const learningSchema = z.strictObject({
   conceptKeys: z.array(i18nKeySchema).min(1).describe('e.g. "concept.stoichiometry".'),
 });
 
@@ -78,7 +78,7 @@ export type Learning = z.infer<typeof learningSchema>;
  * modelled, the renderer must present the animation as conceptual — see
  * §6 and ARCHITECTURE.md § "Educational vs. research-grade simulation".
  */
-export const visualizationHintsSchema = z.object({
+export const visualizationHintsSchema = z.strictObject({
   particles: z.boolean().default(true),
   bonds: z.boolean().default(true),
   energyProfile: z.boolean().default(false),
@@ -86,14 +86,14 @@ export const visualizationHintsSchema = z.object({
 
 export type VisualizationHints = z.infer<typeof visualizationHintsSchema>;
 
-export const reactionSchema = z.object({
+export const reactionSchema = z.strictObject({
   schemaVersion: z.literal(CHEMSPEC_VERSION).default(CHEMSPEC_VERSION),
   id: z
     .string()
     .regex(/^[a-z0-9]+(-[a-z0-9]+)*$/, 'id must be kebab-case, e.g. "hydrogen-combustion".'),
   titleKey: i18nKeySchema,
   equation: equationSchema,
-  reaction: z.object({
+  reaction: z.strictObject({
     family: reactionFamilySchema,
     reversible: z.boolean().default(false),
     thermalEffect: thermalEffectSchema,
