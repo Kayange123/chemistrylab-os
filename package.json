@@ -7,7 +7,7 @@
   "type": "module",
   "packageManager": "pnpm@11.3.0",
   "engines": {
-    "node": ">=20.0.0"
+    "node": ">=22.13.0"
   },
   "scripts": {
     "postinstall": "tsx scripts/generate-elements.ts && tsx packages/chemspec/scripts/generate-json-schema.ts",
