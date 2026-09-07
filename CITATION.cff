@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: >-
+  If you use ChemistryLab OS in research, teaching material, or another
+  publication, please cite it using the metadata below.
+title: ChemistryLab OS
+type: software
+abstract: >-
+  An open, declarative platform for interactive chemistry education —
+  reactions, molecules, and (planned) lessons and experiments described as
+  structured data (ChemSpec) interpreted by reusable engines, rather than
+  hardcoded per-reaction application logic.
+authors:
+  - name: 'Ayubu Kayange'
+license: Apache-2.0
+license-url: 'https://www.apache.org/licenses/LICENSE-2.0'
+repository-code: '<TODO: repository URL once this project has a GitHub remote>'
+keywords:
+  - chemistry
+  - education
+  - science-education
+  - open-educational-resources
+  - simulation
+  - stoichiometry
+version: 0.1.0
+date-released: '2026-09-07'
