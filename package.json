@@ -12,9 +12,9 @@
   "scripts": {
     "postinstall": "tsx scripts/generate-elements.ts && tsx packages/chemspec/scripts/generate-json-schema.ts",
     "build": "turbo run build",
-    "dev": "turbo run dev --parallel",
-    "lint": "turbo run lint",
-    "typecheck": "turbo run typecheck",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint && eslint scripts",
+    "typecheck": "turbo run typecheck && tsc -p tsconfig.json --noEmit",
     "test": "turbo run test",
     "test:e2e": "turbo run test:e2e",
     "format": "prettier --write .",

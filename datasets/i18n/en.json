@@ -104,6 +104,6 @@
   "reaction.silver-chloride-precipitation.title": "Silver chloride precipitation",
   "reaction.silver-chloride-precipitation.accessibility": "Silver nitrate solution reacts with sodium chloride solution. A white solid, silver chloride, forms and settles out, leaving sodium nitrate in solution.",
 
-  "reaction.iron-rusting.title": "Iron rusting",
-  "reaction.iron-rusting.accessibility": "Four iron atoms react with three oxygen molecules to form two units of iron(III) oxide, commonly known as rust. The reaction releases heat slowly at room temperature."
+  "reaction.iron-rusting.title": "Iron oxidation (the core reaction behind rusting)",
+  "reaction.iron-rusting.accessibility": "Four iron atoms react with three oxygen molecules to form two units of iron(III) oxide. This is the core oxidation reaction behind rusting; everyday rusting also needs water, which this simplified equation does not include. The reaction releases heat slowly at room temperature."
 }

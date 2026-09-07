@@ -16,10 +16,13 @@ excludes people, and we're not willing to ship that quietly.
   native `<select>`, "Balance automatically" a real `<button>` — no
   custom widget re-implements keyboard semantics.
 - **Status has a text equivalent, not just colour.** The balance result
-  reads `"✓ Balanced"` / `"✗ Not balanced"` in text (an `aria-live`
-  region announces it to screen readers), and the per-element table
-  repeats the same reactants-vs-products information in text form. CSS
-  colour is supplementary, never the only signal.
+  reads `"✓ Balanced"` / `"✗ Not balanced"` in text, scoped inside its own
+  `aria-live="polite"` element so a screen reader announces just that
+  headline on change — not the whole per-element table, which sits
+  alongside it as static text repeating the same reactants-vs-products
+  information. A parse error is a separate `role="alert"` element (an
+  implicit assertive live region on its own; it isn't nested inside the
+  polite one). CSS colour is supplementary, never the only signal.
 - **`prefers-reduced-motion: reduce` is honoured globally**
   (`apps/web/src/styles.css`) — anything that later adds real animation
   (Phase 4's reaction-engine) inherits this, and any new transition must

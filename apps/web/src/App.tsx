@@ -118,15 +118,11 @@ export default function App() {
           </button>
         </form>
 
-        <div
-          aria-live="polite"
-          className="status"
-          data-balanced={diagnosis.conservation?.balanced ?? false}
-        >
+        <div className="status" data-balanced={diagnosis.conservation?.balanced ?? false}>
           {diagnosis.errorMessage && <p role="alert">{diagnosis.errorMessage}</p>}
           {diagnosis.conservation && (
             <>
-              <p className="status-headline">
+              <p className="status-headline" aria-live="polite">
                 {diagnosis.conservation.balanced ? '✓ Balanced' : '✗ Not balanced'}
               </p>
               <table>
