@@ -72,7 +72,7 @@ pnpm build           # tsc + vite build
 pnpm validate:data   # validate every file under datasets/
 ```
 
-Requires Node ≥20 and pnpm (see `.nvmrc` / `packageManager` in
+Requires Node ≥22.13 and pnpm (see `.nvmrc` / `packageManager` in
 `package.json`).
 
 ## Architecture, in one paragraph

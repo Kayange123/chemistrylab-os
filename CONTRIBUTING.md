@@ -22,7 +22,7 @@ pnpm install     # also runs codegen: element table + JSON Schema
 pnpm dev         # playground at http://localhost:5173
 ```
 
-Requires Node ≥20 and pnpm (`packageManager` in `package.json` pins the
+Requires Node ≥22.13 and pnpm (`packageManager` in `package.json` pins the
 exact version this repo was built against).
 
 ```bash
