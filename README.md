@@ -55,7 +55,7 @@ pnpm dev
 ## Quick start
 
 ```bash
-git clone <this repository>
+git clone https://github.com/Kayange123/chemistrylab-os.git
 cd chemistrylab-os
 pnpm install     # also runs codegen (element table, JSON Schema)
 pnpm dev         # http://localhost:5173 — the playground

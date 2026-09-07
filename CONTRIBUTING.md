@@ -16,7 +16,7 @@ learners of many ages — hold yourself to the higher standard that implies.
 ## Setup
 
 ```bash
-git clone <this repository>
+git clone https://github.com/Kayange123/chemistrylab-os.git
 cd chemistrylab-os
 pnpm install     # also runs codegen: element table + JSON Schema
 pnpm dev         # playground at http://localhost:5173
