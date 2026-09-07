@@ -1,0 +1,25 @@
+name: Translation
+description: Add or fix a translation in datasets/i18n/.
+labels: ['localization']
+body:
+  - type: input
+    id: language
+    attributes:
+      label: Language
+      placeholder: 'e.g. Kiswahili (sw)'
+    validations:
+      required: true
+  - type: textarea
+    id: keys
+    attributes:
+      label: Which keys?
+      description: Specific i18n keys (e.g. `element.hydrogen.name`), or "all of en.json" for a full new locale.
+    validations:
+      required: true
+  - type: checkboxes
+    id: confidence
+    attributes:
+      label: Confidence check
+      options:
+        - label: I'm a native or fluent speaker of this language
+        - label: I'm confident in the scientific terminology, not just the everyday translation

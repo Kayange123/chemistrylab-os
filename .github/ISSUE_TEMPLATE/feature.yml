@@ -1,0 +1,32 @@
+name: Feature request
+description: Propose a new capability.
+labels: ['enhancement']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        For anything touching ChemSpec's schema, core public APIs, or simulation semantics, please open an RFC instead (see `rfcs/README.md`) — this template is for smaller, self-contained proposals.
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem does this solve?
+      description: Who hits this, and what do they have to do today instead?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Scope check
+      options:
+        - label: This doesn't require a new top-level package (see ARCHITECTURE.md's "planned, not yet built" table)
+        - label: This doesn't require a backend service

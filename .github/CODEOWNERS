@@ -1,0 +1,28 @@
+# Code owners for ChemistryLab OS.
+#
+# TODO(founding maintainer): replace <TODO-GITHUB-HANDLE> below with your
+# real GitHub username (or a team, once one exists) before enabling branch
+# protection that requires code-owner review — GitHub ignores CODEOWNERS
+# entries it can't resolve to a real user/team, so this file currently
+# documents *intent*, not an enforced rule. See GOVERNANCE.md.
+#
+# As additional maintainers and a reviewing chemist join, replace these
+# single-owner lines with the appropriate people/teams — do not leave this
+# file describing owners who aren't actually reviewing PRs.
+
+# Fallback: everything not matched below.
+*                           <TODO-GITHUB-HANDLE>
+
+# Scientific content needs a chemistry-literate reviewer before merge —
+# see CHEMISTRY_GUIDELINES.md. Until a dedicated reviewer/team is
+# designated, this is enforced by process (the chemistry-review label),
+# not by branch protection alone.
+/datasets/reactions/       <TODO-GITHUB-HANDLE>
+/datasets/elements/        <TODO-GITHUB-HANDLE>
+
+# Schema changes are architecture changes — see rfcs/0001-chemspec.md.
+/packages/chemspec/        <TODO-GITHUB-HANDLE>
+
+# CI/security-relevant configuration.
+/.github/                  <TODO-GITHUB-HANDLE>
+/SECURITY.md                <TODO-GITHUB-HANDLE>

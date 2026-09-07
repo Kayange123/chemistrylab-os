@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+# TODO(founding maintainer): once this repo has a real GitHub remote,
+# enable Discussions and uncomment the contact link below (update the URL
+# to match) so open-ended questions have somewhere to go besides an issue.
+# contact_links:
+#   - name: Ask a question / start a discussion
+#     url: https://github.com/<org>/<repo>/discussions
+#     about: For open-ended questions that aren't a specific bug or proposal yet.

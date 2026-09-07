@@ -1,0 +1,39 @@
+name: Propose a new reaction
+description: Suggest a reaction to add to the curated dataset.
+labels: ['chemistry', 'dataset']
+body:
+  - type: input
+    id: equation
+    attributes:
+      label: Equation
+      placeholder: 'e.g. 2Na + 2H2O -> 2NaOH + H2'
+    validations:
+      required: true
+  - type: dropdown
+    id: family
+    attributes:
+      label: Reaction family
+      options:
+        - synthesis
+        - decomposition
+        - combustion
+        - single-displacement
+        - double-displacement
+        - acid-base
+        - precipitation
+        - redox
+        - other / not sure
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why this reaction?
+      description: What makes it a good addition — a common curriculum example, fills a gap in the current dataset, etc.
+    validations:
+      required: true
+  - type: textarea
+    id: source
+    attributes:
+      label: Source
+      description: See DATA_SOURCES.md — required before this can be marked `verified`, but not to file the issue.

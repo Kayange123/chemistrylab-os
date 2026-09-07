@@ -1,0 +1,31 @@
+name: Propose a lesson
+description: Suggest a lesson or classroom activity idea.
+labels: ['education']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Lesson/curriculum schemas aren't built yet (see ROADMAP.md, Phase 5) — this issue is for capturing the idea and learning objectives now so it's ready to formalize once `@chemistrylab/curriculum` exists. It won't turn into working software immediately.
+  - type: input
+    id: title
+    attributes:
+      label: Lesson title
+    validations:
+      required: true
+  - type: textarea
+    id: objectives
+    attributes:
+      label: Learning objectives
+      description: What should a learner be able to do afterward?
+    validations:
+      required: true
+  - type: input
+    id: simulation
+    attributes:
+      label: Related reaction/simulation (if any)
+      description: e.g. an id from `datasets/reactions/`
+  - type: textarea
+    id: notes
+    attributes:
+      label: Classroom notes
+      description: Grade level, prerequisites, anything a teacher would want to know.

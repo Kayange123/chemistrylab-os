@@ -1,0 +1,31 @@
+name: Bug report
+description: Something in the code doesn't work the way it should.
+labels: ['bug']
+body:
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: What did you expect instead?
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Run `pnpm dev`
+        2. Enter equation "..."
+        3. Click "Balance automatically"
+    validations:
+      required: true
+  - type: input
+    id: where
+    attributes:
+      label: Where did this happen?
+      description: Package or app (e.g. `@chemistrylab/core`, `apps/web`), and version/commit if known.
+  - type: textarea
+    id: context
+    attributes:
+      label: Anything else?
+      description: Error messages, screenshots, browser/OS if relevant.

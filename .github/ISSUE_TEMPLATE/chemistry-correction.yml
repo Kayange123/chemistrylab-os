@@ -1,0 +1,27 @@
+name: Chemistry correction
+description: Something scientifically inaccurate or misleading in the content or engine.
+labels: ['chemistry', 'chemistry-review']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you — scientific accuracy is the thing we can least afford to get wrong. See `CHEMISTRY_GUIDELINES.md` for how review works.
+  - type: input
+    id: location
+    attributes:
+      label: Where is the error?
+      description: File path (e.g. `datasets/reactions/hydrogen-combustion.yaml`) or where in the app you saw it.
+    validations:
+      required: true
+  - type: textarea
+    id: issue
+    attributes:
+      label: What's wrong?
+      description: What does it currently say/do, and what should it say/do instead?
+    validations:
+      required: true
+  - type: textarea
+    id: source
+    attributes:
+      label: Supporting source
+      description: A citation (IUPAC, NIST, PubChem, peer-reviewed literature, or a recognized textbook) — see DATA_SOURCES.md. Not required to file the issue, but speeds up review a lot.
