@@ -1,0 +1,38 @@
+schemaVersion: '0.1'
+id: methane-combustion
+titleKey: reaction.methane-combustion.title
+
+equation:
+  reactants:
+    - { molecule: CH4, coefficient: 1 }
+    - { molecule: O2, coefficient: 2 }
+  products:
+    - { molecule: CO2, coefficient: 1 }
+    - { molecule: H2O, coefficient: 2 }
+
+reaction:
+  family: combustion
+  reversible: false
+  thermalEffect: exothermic
+
+conditions:
+  ignitionRequired: true
+
+learning:
+  conceptKeys:
+    - concept.stoichiometry
+    - concept.conservation-of-mass
+    - concept.combustion
+
+accessibility:
+  descriptionKey: reaction.methane-combustion.accessibility
+
+visualization:
+  particles: true
+  bonds: true
+  energyProfile: true
+
+provenance:
+  sources: []
+  review:
+    scientificStatus: unverified

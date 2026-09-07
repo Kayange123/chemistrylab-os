@@ -1,0 +1,36 @@
+schemaVersion: '0.1'
+id: potassium-chlorate-decomposition
+titleKey: reaction.potassium-chlorate-decomposition.title
+
+equation:
+  reactants:
+    - { molecule: KClO3, coefficient: 2 }
+  products:
+    - { molecule: KCl, coefficient: 2 }
+    - { molecule: O2, coefficient: 3 }
+
+reaction:
+  family: decomposition
+  reversible: false
+  thermalEffect: endothermic
+
+conditions:
+  ignitionRequired: false
+
+learning:
+  conceptKeys:
+    - concept.decomposition-reaction
+    - concept.stoichiometry
+
+accessibility:
+  descriptionKey: reaction.potassium-chlorate-decomposition.accessibility
+
+visualization:
+  particles: true
+  bonds: true
+  energyProfile: false
+
+provenance:
+  sources: []
+  review:
+    scientificStatus: unverified

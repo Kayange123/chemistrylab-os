@@ -1,0 +1,37 @@
+schemaVersion: '0.1'
+id: ammonia-synthesis
+titleKey: reaction.ammonia-synthesis.title
+
+equation:
+  reactants:
+    - { molecule: N2, coefficient: 1 }
+    - { molecule: H2, coefficient: 3 }
+  products:
+    - { molecule: NH3, coefficient: 2 }
+
+reaction:
+  family: synthesis
+  reversible: true
+  thermalEffect: exothermic
+
+conditions:
+  ignitionRequired: false
+
+learning:
+  conceptKeys:
+    - concept.synthesis-reaction
+    - concept.reversibility
+    - concept.stoichiometry
+
+accessibility:
+  descriptionKey: reaction.ammonia-synthesis.accessibility
+
+visualization:
+  particles: true
+  bonds: true
+  energyProfile: false
+
+provenance:
+  sources: []
+  review:
+    scientificStatus: unverified

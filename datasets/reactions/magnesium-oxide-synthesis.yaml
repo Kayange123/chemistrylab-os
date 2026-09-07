@@ -1,0 +1,37 @@
+schemaVersion: '0.1'
+id: magnesium-oxide-synthesis
+titleKey: reaction.magnesium-oxide-synthesis.title
+
+equation:
+  reactants:
+    - { molecule: Mg, coefficient: 2 }
+    - { molecule: O2, coefficient: 1 }
+  products:
+    - { molecule: MgO, coefficient: 2 }
+
+reaction:
+  family: synthesis
+  reversible: false
+  thermalEffect: exothermic
+
+conditions:
+  ignitionRequired: true
+
+learning:
+  conceptKeys:
+    - concept.synthesis-reaction
+    - concept.conservation-of-mass
+    - concept.thermal-effect
+
+accessibility:
+  descriptionKey: reaction.magnesium-oxide-synthesis.accessibility
+
+visualization:
+  particles: true
+  bonds: true
+  energyProfile: true
+
+provenance:
+  sources: []
+  review:
+    scientificStatus: unverified

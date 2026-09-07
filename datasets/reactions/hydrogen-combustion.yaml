@@ -1,0 +1,38 @@
+schemaVersion: '0.1'
+id: hydrogen-combustion
+titleKey: reaction.hydrogen-combustion.title
+
+equation:
+  reactants:
+    - { molecule: H2, coefficient: 2 }
+    - { molecule: O2, coefficient: 1 }
+  products:
+    - { molecule: H2O, coefficient: 2 }
+
+reaction:
+  family: combustion
+  reversible: false
+  thermalEffect: exothermic
+
+conditions:
+  ignitionRequired: true
+
+learning:
+  conceptKeys:
+    - concept.stoichiometry
+    - concept.conservation-of-mass
+    - concept.activation-energy
+    - concept.reaction-rate
+
+accessibility:
+  descriptionKey: reaction.hydrogen-combustion.accessibility
+
+visualization:
+  particles: true
+  bonds: true
+  energyProfile: true
+
+provenance:
+  sources: []
+  review:
+    scientificStatus: unverified

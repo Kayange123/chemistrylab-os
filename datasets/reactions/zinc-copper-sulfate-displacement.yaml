@@ -1,0 +1,37 @@
+schemaVersion: '0.1'
+id: zinc-copper-sulfate-displacement
+titleKey: reaction.zinc-copper-sulfate-displacement.title
+
+equation:
+  reactants:
+    - { molecule: Zn, coefficient: 1 }
+    - { molecule: CuSO4, coefficient: 1 }
+  products:
+    - { molecule: ZnSO4, coefficient: 1 }
+    - { molecule: Cu, coefficient: 1 }
+
+reaction:
+  family: single-displacement
+  reversible: false
+  thermalEffect: exothermic
+
+conditions:
+  ignitionRequired: false
+
+learning:
+  conceptKeys:
+    - concept.single-displacement
+    - concept.redox
+
+accessibility:
+  descriptionKey: reaction.zinc-copper-sulfate-displacement.accessibility
+
+visualization:
+  particles: true
+  bonds: true
+  energyProfile: false
+
+provenance:
+  sources: []
+  review:
+    scientificStatus: unverified

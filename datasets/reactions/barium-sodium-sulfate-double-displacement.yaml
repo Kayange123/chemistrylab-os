@@ -1,0 +1,37 @@
+schemaVersion: '0.1'
+id: barium-sodium-sulfate-double-displacement
+titleKey: reaction.barium-sodium-sulfate-double-displacement.title
+
+equation:
+  reactants:
+    - { molecule: BaCl2, coefficient: 1 }
+    - { molecule: Na2SO4, coefficient: 1 }
+  products:
+    - { molecule: BaSO4, coefficient: 1 }
+    - { molecule: NaCl, coefficient: 2 }
+
+reaction:
+  family: double-displacement
+  reversible: false
+  thermalEffect: unknown
+
+conditions:
+  ignitionRequired: false
+
+learning:
+  conceptKeys:
+    - concept.double-displacement
+    - concept.precipitation
+
+accessibility:
+  descriptionKey: reaction.barium-sodium-sulfate-double-displacement.accessibility
+
+visualization:
+  particles: true
+  bonds: true
+  energyProfile: false
+
+provenance:
+  sources: []
+  review:
+    scientificStatus: unverified

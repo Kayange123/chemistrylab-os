@@ -1,0 +1,36 @@
+schemaVersion: '0.1'
+id: calcium-carbonate-decomposition
+titleKey: reaction.calcium-carbonate-decomposition.title
+
+equation:
+  reactants:
+    - { molecule: CaCO3, coefficient: 1 }
+  products:
+    - { molecule: CaO, coefficient: 1 }
+    - { molecule: CO2, coefficient: 1 }
+
+reaction:
+  family: decomposition
+  reversible: false
+  thermalEffect: endothermic
+
+conditions:
+  ignitionRequired: false
+
+learning:
+  conceptKeys:
+    - concept.decomposition-reaction
+    - concept.thermal-effect
+
+accessibility:
+  descriptionKey: reaction.calcium-carbonate-decomposition.accessibility
+
+visualization:
+  particles: true
+  bonds: true
+  energyProfile: true
+
+provenance:
+  sources: []
+  review:
+    scientificStatus: unverified

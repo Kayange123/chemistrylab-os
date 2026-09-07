@@ -1,0 +1,37 @@
+schemaVersion: '0.1'
+id: hydrochloric-acid-neutralization
+titleKey: reaction.hydrochloric-acid-neutralization.title
+
+equation:
+  reactants:
+    - { molecule: HCl, coefficient: 1 }
+    - { molecule: NaOH, coefficient: 1 }
+  products:
+    - { molecule: NaCl, coefficient: 1 }
+    - { molecule: H2O, coefficient: 1 }
+
+reaction:
+  family: acid-base
+  reversible: false
+  thermalEffect: exothermic
+
+conditions:
+  ignitionRequired: false
+
+learning:
+  conceptKeys:
+    - concept.acid-base-neutralization
+    - concept.conservation-of-mass
+
+accessibility:
+  descriptionKey: reaction.hydrochloric-acid-neutralization.accessibility
+
+visualization:
+  particles: true
+  bonds: true
+  energyProfile: false
+
+provenance:
+  sources: []
+  review:
+    scientificStatus: unverified

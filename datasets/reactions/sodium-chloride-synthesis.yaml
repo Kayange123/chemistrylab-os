@@ -1,0 +1,36 @@
+schemaVersion: '0.1'
+id: sodium-chloride-synthesis
+titleKey: reaction.sodium-chloride-synthesis.title
+
+equation:
+  reactants:
+    - { molecule: Na, coefficient: 2 }
+    - { molecule: Cl2, coefficient: 1 }
+  products:
+    - { molecule: NaCl, coefficient: 2 }
+
+reaction:
+  family: synthesis
+  reversible: false
+  thermalEffect: exothermic
+
+conditions:
+  ignitionRequired: false
+
+learning:
+  conceptKeys:
+    - concept.synthesis-reaction
+    - concept.conservation-of-mass
+
+accessibility:
+  descriptionKey: reaction.sodium-chloride-synthesis.accessibility
+
+visualization:
+  particles: true
+  bonds: true
+  energyProfile: false
+
+provenance:
+  sources: []
+  review:
+    scientificStatus: unverified

@@ -1,0 +1,14 @@
+{
+  "_meta": {
+    "locale": "sw",
+    "status": "in-progress",
+    "note": "Kiswahili scaffold. A handful of commonly used loanwords are filled in as a starting point; everything else falls back to en.json until translated. Needs review by a native Kiswahili-speaking contributor familiar with secondary-school chemistry terminology — see GOOD_FIRST_ISSUES.md ('Add Kiswahili translation scaffolding') and CONTRIBUTING.md's translator path. Do not treat these as authoritative until reviewed."
+  },
+
+  "element.hydrogen.name": "Hidrojeni",
+  "element.oxygen.name": "Oksijeni",
+  "element.carbon.name": "Kaboni",
+  "element.nitrogen.name": "Naitrojeni",
+  "element.sodium.name": "Sodiamu",
+  "element.iron.name": "Chuma"
+}

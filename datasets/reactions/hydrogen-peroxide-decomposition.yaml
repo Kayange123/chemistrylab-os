@@ -1,0 +1,36 @@
+schemaVersion: '0.1'
+id: hydrogen-peroxide-decomposition
+titleKey: reaction.hydrogen-peroxide-decomposition.title
+
+equation:
+  reactants:
+    - { molecule: H2O2, coefficient: 2 }
+  products:
+    - { molecule: H2O, coefficient: 2 }
+    - { molecule: O2, coefficient: 1 }
+
+reaction:
+  family: decomposition
+  reversible: false
+  thermalEffect: exothermic
+
+conditions:
+  ignitionRequired: false
+
+learning:
+  conceptKeys:
+    - concept.decomposition-reaction
+    - concept.reaction-rate
+
+accessibility:
+  descriptionKey: reaction.hydrogen-peroxide-decomposition.accessibility
+
+visualization:
+  particles: true
+  bonds: true
+  energyProfile: false
+
+provenance:
+  sources: []
+  review:
+    scientificStatus: unverified

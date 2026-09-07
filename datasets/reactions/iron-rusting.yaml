@@ -1,0 +1,36 @@
+schemaVersion: '0.1'
+id: iron-rusting
+titleKey: reaction.iron-rusting.title
+
+equation:
+  reactants:
+    - { molecule: Fe, coefficient: 4 }
+    - { molecule: O2, coefficient: 3 }
+  products:
+    - { molecule: Fe2O3, coefficient: 2 }
+
+reaction:
+  family: redox
+  reversible: false
+  thermalEffect: exothermic
+
+conditions:
+  ignitionRequired: false
+
+learning:
+  conceptKeys:
+    - concept.redox
+    - concept.thermal-effect
+
+accessibility:
+  descriptionKey: reaction.iron-rusting.accessibility
+
+visualization:
+  particles: true
+  bonds: true
+  energyProfile: false
+
+provenance:
+  sources: []
+  review:
+    scientificStatus: unverified

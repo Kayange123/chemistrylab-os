@@ -1,0 +1,109 @@
+{
+  "_meta": {
+    "locale": "en",
+    "status": "complete",
+    "note": "English is the source locale: every i18n key referenced by datasets/elements and datasets/reactions must resolve here. See datasets/i18n/README.md."
+  },
+
+  "element.hydrogen.name": "Hydrogen",
+  "element.helium.name": "Helium",
+  "element.lithium.name": "Lithium",
+  "element.beryllium.name": "Beryllium",
+  "element.boron.name": "Boron",
+  "element.carbon.name": "Carbon",
+  "element.nitrogen.name": "Nitrogen",
+  "element.oxygen.name": "Oxygen",
+  "element.fluorine.name": "Fluorine",
+  "element.neon.name": "Neon",
+  "element.sodium.name": "Sodium",
+  "element.magnesium.name": "Magnesium",
+  "element.aluminium.name": "Aluminium",
+  "element.silicon.name": "Silicon",
+  "element.phosphorus.name": "Phosphorus",
+  "element.sulfur.name": "Sulfur",
+  "element.chlorine.name": "Chlorine",
+  "element.argon.name": "Argon",
+  "element.potassium.name": "Potassium",
+  "element.calcium.name": "Calcium",
+  "element.scandium.name": "Scandium",
+  "element.titanium.name": "Titanium",
+  "element.vanadium.name": "Vanadium",
+  "element.chromium.name": "Chromium",
+  "element.manganese.name": "Manganese",
+  "element.iron.name": "Iron",
+  "element.cobalt.name": "Cobalt",
+  "element.nickel.name": "Nickel",
+  "element.copper.name": "Copper",
+  "element.zinc.name": "Zinc",
+  "element.gallium.name": "Gallium",
+  "element.germanium.name": "Germanium",
+  "element.arsenic.name": "Arsenic",
+  "element.selenium.name": "Selenium",
+  "element.bromine.name": "Bromine",
+  "element.krypton.name": "Krypton",
+  "element.silver.name": "Silver",
+  "element.tin.name": "Tin",
+  "element.iodine.name": "Iodine",
+  "element.barium.name": "Barium",
+  "element.platinum.name": "Platinum",
+  "element.gold.name": "Gold",
+  "element.mercury.name": "Mercury",
+  "element.lead.name": "Lead",
+
+  "concept.stoichiometry": "Stoichiometry",
+  "concept.conservation-of-mass": "Conservation of mass",
+  "concept.activation-energy": "Activation energy",
+  "concept.reaction-rate": "Reaction rate",
+  "concept.synthesis-reaction": "Synthesis reaction",
+  "concept.decomposition-reaction": "Decomposition reaction",
+  "concept.combustion": "Combustion",
+  "concept.single-displacement": "Single displacement",
+  "concept.double-displacement": "Double displacement",
+  "concept.acid-base-neutralization": "Acid-base neutralization",
+  "concept.precipitation": "Precipitation reaction",
+  "concept.redox": "Oxidation-reduction (redox)",
+  "concept.thermal-effect": "Exothermic and endothermic reactions",
+  "concept.reversibility": "Reversible and irreversible reactions",
+
+  "reaction.hydrogen-combustion.title": "Hydrogen combustion",
+  "reaction.hydrogen-combustion.accessibility": "Two hydrogen molecules react with one oxygen molecule to form two water molecules. The reaction releases heat and requires an ignition source to start.",
+
+  "reaction.methane-combustion.title": "Methane combustion",
+  "reaction.methane-combustion.accessibility": "One methane molecule reacts with two oxygen molecules to form one carbon dioxide molecule and two water molecules. The reaction releases heat and requires an ignition source to start.",
+
+  "reaction.magnesium-oxide-synthesis.title": "Magnesium burns in oxygen",
+  "reaction.magnesium-oxide-synthesis.accessibility": "Two magnesium atoms react with one oxygen molecule to form two units of magnesium oxide. The reaction releases heat and light, and requires an ignition source to start.",
+
+  "reaction.sodium-chloride-synthesis.title": "Sodium reacts with chlorine",
+  "reaction.sodium-chloride-synthesis.accessibility": "Two sodium atoms react with one chlorine molecule to form two units of sodium chloride, common table salt. The reaction releases heat.",
+
+  "reaction.ammonia-synthesis.title": "Ammonia synthesis (Haber process)",
+  "reaction.ammonia-synthesis.accessibility": "One nitrogen molecule reacts with three hydrogen molecules to form two ammonia molecules. Industrially this reaction is reversible and needs a catalyst, high pressure, and moderate heat.",
+
+  "reaction.aluminium-oxide-synthesis.title": "Aluminium burns in oxygen",
+  "reaction.aluminium-oxide-synthesis.accessibility": "Four aluminium atoms react with three oxygen molecules to form two units of aluminium oxide. The reaction releases heat and requires an ignition source to start.",
+
+  "reaction.calcium-carbonate-decomposition.title": "Thermal decomposition of limestone",
+  "reaction.calcium-carbonate-decomposition.accessibility": "One unit of calcium carbonate breaks down on heating into one unit of calcium oxide and one molecule of carbon dioxide gas. The reaction absorbs heat.",
+
+  "reaction.hydrogen-peroxide-decomposition.title": "Hydrogen peroxide decomposition",
+  "reaction.hydrogen-peroxide-decomposition.accessibility": "Two hydrogen peroxide molecules break down into two water molecules and one oxygen molecule. The reaction releases heat and is sped up by a catalyst.",
+
+  "reaction.potassium-chlorate-decomposition.title": "Thermal decomposition of potassium chlorate",
+  "reaction.potassium-chlorate-decomposition.accessibility": "Two units of potassium chlorate break down on heating into two units of potassium chloride and three oxygen molecules.",
+
+  "reaction.zinc-copper-sulfate-displacement.title": "Zinc displaces copper",
+  "reaction.zinc-copper-sulfate-displacement.accessibility": "Solid zinc reacts with a copper sulfate solution. Zinc takes the place of copper, forming a zinc sulfate solution and depositing solid copper.",
+
+  "reaction.barium-sodium-sulfate-double-displacement.title": "Barium chloride reacts with sodium sulfate",
+  "reaction.barium-sodium-sulfate-double-displacement.accessibility": "Barium chloride solution reacts with sodium sulfate solution. The ions exchange partners, forming solid barium sulfate and sodium chloride in solution.",
+
+  "reaction.hydrochloric-acid-neutralization.title": "Hydrochloric acid neutralizes sodium hydroxide",
+  "reaction.hydrochloric-acid-neutralization.accessibility": "Hydrochloric acid reacts with sodium hydroxide in a one-to-one ratio, forming sodium chloride and water. The reaction releases heat.",
+
+  "reaction.silver-chloride-precipitation.title": "Silver chloride precipitation",
+  "reaction.silver-chloride-precipitation.accessibility": "Silver nitrate solution reacts with sodium chloride solution. A white solid, silver chloride, forms and settles out, leaving sodium nitrate in solution.",
+
+  "reaction.iron-rusting.title": "Iron rusting",
+  "reaction.iron-rusting.accessibility": "Four iron atoms react with three oxygen molecules to form two units of iron(III) oxide, commonly known as rust. The reaction releases heat slowly at room temperature."
+}

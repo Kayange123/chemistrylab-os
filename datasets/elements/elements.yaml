@@ -1,0 +1,55 @@
+# Canonical element list for ChemistryLab OS.
+#
+# v0.1 deliberately ships only symbol + atomic number + a name key: these are
+# immutable IUPAC facts, not measurements, so there is no fabrication risk.
+# Atomic mass, electronegativity, and other measured quantities are Phase 1
+# work — see ROADMAP.md — and will carry their own provenance when added.
+#
+# This file is validated against @chemistrylab/chemspec's elementSchema by
+# `pnpm validate:data`, and is the single source of truth codegen'd into
+# packages/core/src/generated/elements.ts by `pnpm generate:elements`.
+# Do not hand-edit the generated file.
+- { symbol: H, atomicNumber: 1, nameKey: element.hydrogen.name }
+- { symbol: He, atomicNumber: 2, nameKey: element.helium.name }
+- { symbol: Li, atomicNumber: 3, nameKey: element.lithium.name }
+- { symbol: Be, atomicNumber: 4, nameKey: element.beryllium.name }
+- { symbol: B, atomicNumber: 5, nameKey: element.boron.name }
+- { symbol: C, atomicNumber: 6, nameKey: element.carbon.name }
+- { symbol: N, atomicNumber: 7, nameKey: element.nitrogen.name }
+- { symbol: O, atomicNumber: 8, nameKey: element.oxygen.name }
+- { symbol: F, atomicNumber: 9, nameKey: element.fluorine.name }
+- { symbol: Ne, atomicNumber: 10, nameKey: element.neon.name }
+- { symbol: Na, atomicNumber: 11, nameKey: element.sodium.name }
+- { symbol: Mg, atomicNumber: 12, nameKey: element.magnesium.name }
+- { symbol: Al, atomicNumber: 13, nameKey: element.aluminium.name }
+- { symbol: Si, atomicNumber: 14, nameKey: element.silicon.name }
+- { symbol: P, atomicNumber: 15, nameKey: element.phosphorus.name }
+- { symbol: S, atomicNumber: 16, nameKey: element.sulfur.name }
+- { symbol: Cl, atomicNumber: 17, nameKey: element.chlorine.name }
+- { symbol: Ar, atomicNumber: 18, nameKey: element.argon.name }
+- { symbol: K, atomicNumber: 19, nameKey: element.potassium.name }
+- { symbol: Ca, atomicNumber: 20, nameKey: element.calcium.name }
+- { symbol: Sc, atomicNumber: 21, nameKey: element.scandium.name }
+- { symbol: Ti, atomicNumber: 22, nameKey: element.titanium.name }
+- { symbol: V, atomicNumber: 23, nameKey: element.vanadium.name }
+- { symbol: Cr, atomicNumber: 24, nameKey: element.chromium.name }
+- { symbol: Mn, atomicNumber: 25, nameKey: element.manganese.name }
+- { symbol: Fe, atomicNumber: 26, nameKey: element.iron.name }
+- { symbol: Co, atomicNumber: 27, nameKey: element.cobalt.name }
+- { symbol: Ni, atomicNumber: 28, nameKey: element.nickel.name }
+- { symbol: Cu, atomicNumber: 29, nameKey: element.copper.name }
+- { symbol: Zn, atomicNumber: 30, nameKey: element.zinc.name }
+- { symbol: Ga, atomicNumber: 31, nameKey: element.gallium.name }
+- { symbol: Ge, atomicNumber: 32, nameKey: element.germanium.name }
+- { symbol: As, atomicNumber: 33, nameKey: element.arsenic.name }
+- { symbol: Se, atomicNumber: 34, nameKey: element.selenium.name }
+- { symbol: Br, atomicNumber: 35, nameKey: element.bromine.name }
+- { symbol: Kr, atomicNumber: 36, nameKey: element.krypton.name }
+- { symbol: Ag, atomicNumber: 47, nameKey: element.silver.name }
+- { symbol: Sn, atomicNumber: 50, nameKey: element.tin.name }
+- { symbol: I, atomicNumber: 53, nameKey: element.iodine.name }
+- { symbol: Ba, atomicNumber: 56, nameKey: element.barium.name }
+- { symbol: Pt, atomicNumber: 78, nameKey: element.platinum.name }
+- { symbol: Au, atomicNumber: 79, nameKey: element.gold.name }
+- { symbol: Hg, atomicNumber: 80, nameKey: element.mercury.name }
+- { symbol: Pb, atomicNumber: 82, nameKey: element.lead.name }

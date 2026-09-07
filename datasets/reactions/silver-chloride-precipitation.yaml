@@ -1,0 +1,37 @@
+schemaVersion: '0.1'
+id: silver-chloride-precipitation
+titleKey: reaction.silver-chloride-precipitation.title
+
+equation:
+  reactants:
+    - { molecule: AgNO3, coefficient: 1 }
+    - { molecule: NaCl, coefficient: 1 }
+  products:
+    - { molecule: AgCl, coefficient: 1 }
+    - { molecule: NaNO3, coefficient: 1 }
+
+reaction:
+  family: precipitation
+  reversible: false
+  thermalEffect: unknown
+
+conditions:
+  ignitionRequired: false
+
+learning:
+  conceptKeys:
+    - concept.precipitation
+    - concept.double-displacement
+
+accessibility:
+  descriptionKey: reaction.silver-chloride-precipitation.accessibility
+
+visualization:
+  particles: true
+  bonds: true
+  energyProfile: false
+
+provenance:
+  sources: []
+  review:
+    scientificStatus: unverified

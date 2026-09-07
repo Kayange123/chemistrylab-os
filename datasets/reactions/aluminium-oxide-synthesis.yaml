@@ -1,0 +1,36 @@
+schemaVersion: '0.1'
+id: aluminium-oxide-synthesis
+titleKey: reaction.aluminium-oxide-synthesis.title
+
+equation:
+  reactants:
+    - { molecule: Al, coefficient: 4 }
+    - { molecule: O2, coefficient: 3 }
+  products:
+    - { molecule: Al2O3, coefficient: 2 }
+
+reaction:
+  family: synthesis
+  reversible: false
+  thermalEffect: exothermic
+
+conditions:
+  ignitionRequired: true
+
+learning:
+  conceptKeys:
+    - concept.synthesis-reaction
+    - concept.stoichiometry
+
+accessibility:
+  descriptionKey: reaction.aluminium-oxide-synthesis.accessibility
+
+visualization:
+  particles: true
+  bonds: true
+  energyProfile: false
+
+provenance:
+  sources: []
+  review:
+    scientificStatus: unverified
