@@ -50,6 +50,17 @@ describe('parseFormula', () => {
     }
   });
 
+  it('throws CHEM003 with a specific message for a stray/unmatched ")"', () => {
+    try {
+      parseFormula('H2O)');
+      expect.unreachable();
+    } catch (err) {
+      expect(err).toBeInstanceOf(ChemistryError);
+      expect((err as ChemistryError).code).toBe('CHEM003');
+      expect((err as ChemistryError).message).toContain('Unmatched ")"');
+    }
+  });
+
   it('throws CHEM003 for an empty formula', () => {
     expect(() => parseFormula('  ')).toThrow(ChemistryError);
   });

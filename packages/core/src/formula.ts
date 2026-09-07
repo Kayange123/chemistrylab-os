@@ -40,6 +40,13 @@ export function parseFormula(formula: string): ParsedFormula {
   const atoms = parseGroup(state, trimmed);
 
   if (state.index !== body.length) {
+    if (body[state.index] === ')') {
+      throw new ChemistryError(
+        'CHEM003',
+        `Unmatched ")" in formula "${trimmed}" — no corresponding "(" was found.`,
+        { formula: trimmed, position: state.index },
+      );
+    }
     throw new ChemistryError(
       'CHEM003',
       `Unexpected character "${body[state.index]}" in formula "${trimmed}".`,
