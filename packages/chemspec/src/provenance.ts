@@ -5,7 +5,7 @@ import { z } from 'zod';
  * NIST, PubChem, peer-reviewed literature, recognized textbooks) over
  * arbitrary web pages. See DATA_SOURCES.md for sourcing policy.
  */
-export const sourceSchema = z.object({
+export const sourceSchema = z.strictObject({
   organization: z.string().min(1),
   reference: z.string().min(1).describe('Title, DOI, URL, or textbook citation.'),
   accessedAt: z.string().date().optional(),
@@ -23,7 +23,7 @@ export const scientificStatusSchema = z.enum(['unverified', 'in-review', 'verifi
 
 export type ScientificStatus = z.infer<typeof scientificStatusSchema>;
 
-export const reviewSchema = z.object({
+export const reviewSchema = z.strictObject({
   scientificStatus: scientificStatusSchema.default('unverified'),
   reviewedBy: z.string().optional().describe('GitHub handle of the reviewing chemist.'),
   lastVerifiedAt: z.string().date().optional(),

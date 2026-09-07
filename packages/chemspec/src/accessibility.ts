@@ -8,7 +8,7 @@ import { i18nKeySchema } from './i18n.js';
  * optional, because retrofitting accessibility is far more expensive than
  * requiring it at data-entry time.
  */
-export const accessibilityDescriptionSchema = z.object({
+export const accessibilityDescriptionSchema = z.strictObject({
   descriptionKey: i18nKeySchema.describe(
     'i18n key resolving to a plain-language, colour- and motion-independent description.',
   ),
