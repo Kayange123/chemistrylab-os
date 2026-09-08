@@ -10,3 +10,4 @@ export { type EquationTerm, type ParsedEquation, parseEquation } from './equatio
 export { ChemistryError, type ChemistryErrorCode } from './errors.js';
 export { type ParsedFormula, parseFormula } from './formula.js';
 export { KNOWN_ELEMENT_SYMBOLS, KNOWN_ELEMENTS, type KnownElement } from './generated/elements.js';
+export { getGroup, getPeriod } from './periodic-trends.js';
