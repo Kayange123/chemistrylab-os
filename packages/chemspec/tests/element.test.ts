@@ -7,6 +7,8 @@ const validElement = {
   nameKey: 'element.hydrogen.name',
 };
 
+const aSource = { organization: 'CIAAW', reference: 'Abridged Standard Atomic Weights 2024' };
+
 describe('elementSchema', () => {
   it('accepts an element with only the v0.1 fields', () => {
     const result = elementSchema.parse(validElement);
@@ -19,14 +21,14 @@ describe('elementSchema', () => {
   });
 
   it('rejects atomicMass with no provenance', () => {
-    expect(() => elementSchema.parse({ ...validElement, atomicMass: 1.008 })).toThrow();
+    expect(() => elementSchema.parse({ ...validElement, atomicMass: { value: 1.008 } })).toThrow();
   });
 
   it('rejects atomicMass with provenance but no sources', () => {
     expect(() =>
       elementSchema.parse({
         ...validElement,
-        atomicMass: 1.008,
+        atomicMass: { value: 1.008 },
         provenance: { sources: [], review: { scientificStatus: 'unverified' } },
       }),
     ).toThrow();
@@ -35,23 +37,47 @@ describe('elementSchema', () => {
   it('accepts atomicMass when at least one source is cited', () => {
     const withSource = {
       ...validElement,
-      atomicMass: 1.008,
-      provenance: {
-        sources: [{ organization: 'CIAAW', reference: 'Standard Atomic Weights' }],
-        review: { scientificStatus: 'unverified' },
-      },
+      atomicMass: { value: 1.008, uncertainty: 0.0002 },
+      provenance: { sources: [aSource], review: { scientificStatus: 'unverified' } },
     };
     expect(() => elementSchema.parse(withSource)).not.toThrow();
   });
 
-  it('rejects a non-positive atomicMass', () => {
+  it('accepts atomicMass with no uncertainty given', () => {
+    const withSource = {
+      ...validElement,
+      atomicMass: { value: 1.008 },
+      provenance: { sources: [aSource] },
+    };
+    expect(() => elementSchema.parse(withSource)).not.toThrow();
+  });
+
+  it('rejects a non-positive atomicMass value', () => {
     expect(() =>
       elementSchema.parse({
         ...validElement,
-        atomicMass: -1,
-        provenance: {
-          sources: [{ organization: 'CIAAW', reference: 'Standard Atomic Weights' }],
-        },
+        atomicMass: { value: -1 },
+        provenance: { sources: [aSource] },
+      }),
+    ).toThrow();
+  });
+
+  it('rejects a negative uncertainty', () => {
+    expect(() =>
+      elementSchema.parse({
+        ...validElement,
+        atomicMass: { value: 1.008, uncertainty: -0.0002 },
+        provenance: { sources: [aSource] },
+      }),
+    ).toThrow();
+  });
+
+  it('rejects an unknown property inside atomicMass', () => {
+    expect(() =>
+      elementSchema.parse({
+        ...validElement,
+        atomicMass: { value: 1.008, typoedField: true },
+        provenance: { sources: [aSource] },
       }),
     ).toThrow();
   });

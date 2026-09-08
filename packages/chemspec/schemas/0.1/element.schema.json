@@ -22,8 +22,21 @@
       "description": "i18n key, e.g. \"element.hydrogen.name\"."
     },
     "atomicMass": {
-      "type": "number",
-      "exclusiveMinimum": 0
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "uncertainty": {
+          "type": "number",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "value"
+      ],
+      "additionalProperties": false
     },
     "provenance": {
       "type": "object",

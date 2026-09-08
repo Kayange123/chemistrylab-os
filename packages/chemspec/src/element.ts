@@ -4,13 +4,18 @@ import { i18nKeySchema } from './i18n.js';
 import { provenanceSchema } from './provenance.js';
 
 /**
- * IUPAC/CIAAW *conventional* atomic weight: a single representative value
- * published for general/educational use. Some elements' true standard
- * atomic weight is an interval (natural isotopic composition varies, e.g.
- * boron, carbon, lithium) — this field deliberately does not attempt to
- * carry that interval or its uncertainty; see DATA_SOURCES.md.
+ * IUPAC/CIAAW *abridged* standard atomic weight: a single representative
+ * value (quoted to 5 significant figures) published for general/
+ * educational use, with the uncertainty CIAAW itself publishes alongside
+ * it. Some elements' true standard atomic weight is an interval (natural
+ * isotopic composition varies, e.g. boron, carbon, lithium) — `value` is
+ * that interval's abridged single-value simplification, not the interval
+ * itself; see DATA_SOURCES.md.
  */
-export const atomicMassSchema = z.number().positive();
+export const atomicMassSchema = z.strictObject({
+  value: z.number().positive(),
+  uncertainty: z.number().nonnegative().optional(),
+});
 
 /**
  * A chemical element.
@@ -31,7 +36,7 @@ export const elementSchema = z
     atomicMass: atomicMassSchema.optional(),
     provenance: provenanceSchema.optional(),
   })
-  .refine((e) => !e.atomicMass || (e.provenance?.sources.length ?? 0) > 0, {
+  .refine((e) => !e.atomicMass || (e.provenance?.sources?.length ?? 0) > 0, {
     message: 'An element with atomicMass must cite at least one source in provenance.sources.',
     path: ['provenance', 'sources'],
   });
