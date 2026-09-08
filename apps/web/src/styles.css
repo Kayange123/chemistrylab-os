@@ -160,6 +160,41 @@ td {
   margin: 0;
 }
 
+.element-meta {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.25rem 1rem;
+}
+
+.element-meta dt {
+  font-weight: 600;
+}
+
+.element-meta dd {
+  margin: 0;
+}
+
+.data-status {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  padding: 0.1rem 0.4rem;
+  border-radius: 0.25rem;
+  border: 1px solid var(--border);
+}
+
+.data-status[data-status='verified'] {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.data-status[data-status='disputed'] {
+  border-color: var(--danger);
+  color: var(--danger);
+}
+
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.001ms !important;

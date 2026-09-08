@@ -29,4 +29,19 @@ describe('App', () => {
     fireEvent.change(screen.getByLabelText(/^equation$/i), { target: { value: 'H2 O2' } });
     expect(screen.getByRole('alert')).toHaveTextContent('CHEM004');
   });
+
+  it("shows an element's atomic number, period, group, and atomic mass on selection", () => {
+    render(<App />);
+    fireEvent.change(screen.getByLabelText(/^element$/i), { target: { value: 'Fe' } });
+    expect(screen.getByText('26')).toBeInTheDocument(); // atomic number
+    expect(screen.getByText('4')).toBeInTheDocument(); // period
+    expect(screen.getByText('8')).toBeInTheDocument(); // group
+    expect(screen.getByText('unverified')).toBeInTheDocument();
+  });
+
+  it('places helium in group 18, not the period-1 s-block guess of group 2', () => {
+    render(<App />);
+    fireEvent.change(screen.getByLabelText(/^element$/i), { target: { value: 'He' } });
+    expect(screen.getByText('18')).toBeInTheDocument();
+  });
 });

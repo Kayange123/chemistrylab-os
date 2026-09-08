@@ -1,13 +1,17 @@
+import type { Element } from '@chemistrylab/chemspec';
 import {
   balanceEquation,
   ChemistryError,
   type ConservationResult,
+  getGroup,
+  getPeriod,
   parseEquation,
   parseFormula,
   validateConservation,
 } from '@chemistrylab/core';
 import { useMemo, useState } from 'react';
 
+import { ELEMENTS } from './elements';
 import { t } from './i18n';
 import { REACTIONS } from './reactions';
 
@@ -38,10 +42,12 @@ function diagnose(equationInput: string): Diagnosis {
 export default function App() {
   const [equationInput, setEquationInput] = useState(DEFAULT_EQUATION);
   const [selectedId, setSelectedId] = useState('');
+  const [selectedSymbol, setSelectedSymbol] = useState('');
 
   const diagnosis = useMemo(() => diagnose(equationInput), [equationInput]);
 
   const selectedReaction = REACTIONS.find((r) => r.id === selectedId) ?? null;
+  const selectedElement = ELEMENTS.find((el) => el.symbol === selectedSymbol) ?? null;
 
   const handleSelectReaction = (id: string) => {
     setSelectedId(id);
@@ -68,6 +74,24 @@ export default function App() {
           check whether it conserves atoms, or let the engine balance it for you.
         </p>
       </header>
+
+      <section aria-labelledby="elements-heading">
+        <h2 id="elements-heading">Elements</h2>
+        <label htmlFor="element-picker">Element</label>
+        <select
+          id="element-picker"
+          value={selectedSymbol}
+          onChange={(e) => setSelectedSymbol(e.target.value)}
+        >
+          <option value="">— Choose an element —</option>
+          {ELEMENTS.map((el) => (
+            <option key={el.symbol} value={el.symbol}>
+              {el.symbol} — {t(el.nameKey)}
+            </option>
+          ))}
+        </select>
+        {selectedElement && <ElementDetail element={selectedElement} />}
+      </section>
 
       <section aria-labelledby="reaction-picker-heading">
         <h2 id="reaction-picker-heading">Choose a reaction</h2>
@@ -222,5 +246,40 @@ function MoleculeCards({ equationInput }: { equationInput: string }) {
       {renderSide('Reactants', parsed.reactants)}
       {renderSide('Products', parsed.products)}
     </div>
+  );
+}
+
+function ElementDetail({ element }: { element: Element }) {
+  const period = getPeriod(element.atomicNumber);
+  const group = getGroup(element.atomicNumber);
+  const status = element.provenance?.review.scientificStatus ?? 'unverified';
+
+  return (
+    <dl className="element-meta">
+      <dt>Atomic number</dt>
+      <dd>{element.atomicNumber}</dd>
+      <dt>Period</dt>
+      <dd>{period}</dd>
+      <dt>Group</dt>
+      <dd>{group ?? 'f-block (not numbered 1–18 — see ROADMAP.md)'}</dd>
+      <dt>Atomic mass</dt>
+      <dd>
+        {element.atomicMass ? (
+          <>
+            {element.atomicMass.value}
+            {element.atomicMass.uncertainty != null && ` ± ${element.atomicMass.uncertainty}`}{' '}
+            <span
+              className="data-status"
+              data-status={status}
+              title="Scientific review status — see DATA_SOURCES.md"
+            >
+              {status}
+            </span>
+          </>
+        ) : (
+          'Not yet sourced'
+        )}
+      </dd>
+    </dl>
   );
 }
