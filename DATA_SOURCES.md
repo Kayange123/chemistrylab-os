@@ -51,21 +51,27 @@ reviews it next.
 
 ## What v0.1 actually ships, honestly
 
-The 14 reactions and 44 elements bootstrapped with this repository were
-authored by an AI agent from general chemistry knowledge, **not** from
-per-entry citation research. Every one of them ships with
+The 14 reactions bootstrapped with this repository were authored by an
+AI agent from general chemistry knowledge, **not** from per-entry
+citation research, and every one ships with
 `review.scientificStatus: unverified` and an empty `sources: []` — see
 `CHEMISTRY_GUIDELINES.md`. This is deliberate honesty, not an oversight:
 claiming otherwise would be exactly the kind of unearned trust this
-document exists to prevent.
+document exists to prevent. Elements started the same way (symbol +
+atomic number only, no sources needed since those aren't measurements);
+see below for how `atomicMass` changed that.
 
-The element dataset (`datasets/elements/elements.yaml`) ships only
-symbol and atomic number, which are immutable IUPAC facts with no
-measurement uncertainty — there's no fabrication risk in listing that
-carbon is element 6. Anything that _is_ a measurement (atomic mass,
-electronegativity, reaction enthalpies, rate constants, temperatures) is
-deliberately **not** included yet, rather than included with invented
-precision — see `ROADMAP.md` Phase 1 and `CHEMISTRY_GUIDELINES.md`
+The element dataset's symbol and atomic number are immutable IUPAC facts
+with no measurement uncertainty — there's no fabrication risk in listing
+that carbon is element 6. `atomicMass` (Phase 1's first measured
+property) is different: every element's value is transcribed from a real
+external source (CIAAW's Abridged Standard Atomic Weights, cited per
+entry, with the uncertainty CIAAW itself publishes alongside it), not
+invented, but it's still an AI transcription that a chemist hasn't
+checked — hence `unverified`, not a claim of correctness. Electronegativity,
+reaction enthalpies, rate constants, and temperatures remain **not**
+included, rather than included with invented precision — see
+`ROADMAP.md` Phase 1 and `CHEMISTRY_GUIDELINES.md`
 "Precision and fabrication."
 
 ## AI-generated content

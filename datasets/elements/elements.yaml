@@ -1,55 +1,421 @@
 # Canonical element list for ChemistryLab OS.
 #
-# v0.1 deliberately ships only symbol + atomic number + a name key: these are
-# immutable IUPAC facts, not measurements, so there is no fabrication risk.
-# Atomic mass, electronegativity, and other measured quantities are Phase 1
-# work — see ROADMAP.md — and will carry their own provenance when added.
+# symbol/atomicNumber/nameKey are immutable IUPAC facts, not measurements —
+# no fabrication risk. atomicMass is the first Phase 1 (see ROADMAP.md)
+# measured property: CIAAW's "Abridged Standard Atomic Weights 2024" table
+# (organization CIAAW, https://www.ciaaw.org/abridged-atomic-weights.htm),
+# fetched and parsed directly from the page's raw HTML on 2026-09-08, not
+# summarized by an intermediate model — see DATA_SOURCES.md on why that
+# distinction matters. `value` is CIAAW's abridged single value (quoted to
+# 5 significant figures; trailing zeros are preserved as published, not
+# rounded), `uncertainty` is CIAAW's own published +/- for that value.
+#
+# Not carried: CIAAW's per-element footnote letters (g/m/r), which flag
+# e.g. that commercial material's isotopic composition may deviate from
+# the natural range assumed here. See the CIAAW page directly if that
+# matters for a given element. Every entry below is `unverified` (the
+# schema default) — an AI agent authored this transcription, and per
+# CHEMISTRY_GUIDELINES.md cannot also be the one who verifies it.
 #
 # This file is validated against @chemistrylab/chemspec's elementSchema by
 # `pnpm validate:data`, and is the single source of truth codegen'd into
-# packages/core/src/generated/elements.ts by `pnpm generate:elements`.
+# packages/core/src/generated/elements.ts by `pnpm generate:elements`
+# (which reads only symbol/atomicNumber — atomicMass/provenance never
+# reach the generated, dependency-free @chemistrylab/core package).
 # Do not hand-edit the generated file.
-- { symbol: H, atomicNumber: 1, nameKey: element.hydrogen.name }
-- { symbol: He, atomicNumber: 2, nameKey: element.helium.name }
-- { symbol: Li, atomicNumber: 3, nameKey: element.lithium.name }
-- { symbol: Be, atomicNumber: 4, nameKey: element.beryllium.name }
-- { symbol: B, atomicNumber: 5, nameKey: element.boron.name }
-- { symbol: C, atomicNumber: 6, nameKey: element.carbon.name }
-- { symbol: N, atomicNumber: 7, nameKey: element.nitrogen.name }
-- { symbol: O, atomicNumber: 8, nameKey: element.oxygen.name }
-- { symbol: F, atomicNumber: 9, nameKey: element.fluorine.name }
-- { symbol: Ne, atomicNumber: 10, nameKey: element.neon.name }
-- { symbol: Na, atomicNumber: 11, nameKey: element.sodium.name }
-- { symbol: Mg, atomicNumber: 12, nameKey: element.magnesium.name }
-- { symbol: Al, atomicNumber: 13, nameKey: element.aluminium.name }
-- { symbol: Si, atomicNumber: 14, nameKey: element.silicon.name }
-- { symbol: P, atomicNumber: 15, nameKey: element.phosphorus.name }
-- { symbol: S, atomicNumber: 16, nameKey: element.sulfur.name }
-- { symbol: Cl, atomicNumber: 17, nameKey: element.chlorine.name }
-- { symbol: Ar, atomicNumber: 18, nameKey: element.argon.name }
-- { symbol: K, atomicNumber: 19, nameKey: element.potassium.name }
-- { symbol: Ca, atomicNumber: 20, nameKey: element.calcium.name }
-- { symbol: Sc, atomicNumber: 21, nameKey: element.scandium.name }
-- { symbol: Ti, atomicNumber: 22, nameKey: element.titanium.name }
-- { symbol: V, atomicNumber: 23, nameKey: element.vanadium.name }
-- { symbol: Cr, atomicNumber: 24, nameKey: element.chromium.name }
-- { symbol: Mn, atomicNumber: 25, nameKey: element.manganese.name }
-- { symbol: Fe, atomicNumber: 26, nameKey: element.iron.name }
-- { symbol: Co, atomicNumber: 27, nameKey: element.cobalt.name }
-- { symbol: Ni, atomicNumber: 28, nameKey: element.nickel.name }
-- { symbol: Cu, atomicNumber: 29, nameKey: element.copper.name }
-- { symbol: Zn, atomicNumber: 30, nameKey: element.zinc.name }
-- { symbol: Ga, atomicNumber: 31, nameKey: element.gallium.name }
-- { symbol: Ge, atomicNumber: 32, nameKey: element.germanium.name }
-- { symbol: As, atomicNumber: 33, nameKey: element.arsenic.name }
-- { symbol: Se, atomicNumber: 34, nameKey: element.selenium.name }
-- { symbol: Br, atomicNumber: 35, nameKey: element.bromine.name }
-- { symbol: Kr, atomicNumber: 36, nameKey: element.krypton.name }
-- { symbol: Ag, atomicNumber: 47, nameKey: element.silver.name }
-- { symbol: Sn, atomicNumber: 50, nameKey: element.tin.name }
-- { symbol: I, atomicNumber: 53, nameKey: element.iodine.name }
-- { symbol: Ba, atomicNumber: 56, nameKey: element.barium.name }
-- { symbol: Pt, atomicNumber: 78, nameKey: element.platinum.name }
-- { symbol: Au, atomicNumber: 79, nameKey: element.gold.name }
-- { symbol: Hg, atomicNumber: 80, nameKey: element.mercury.name }
-- { symbol: Pb, atomicNumber: 82, nameKey: element.lead.name }
+- symbol: H
+  atomicNumber: 1
+  nameKey: element.hydrogen.name
+  atomicMass: { value: 1.0080, uncertainty: 0.0002 }
+  provenance:
+    sources:
+      - organization: CIAAW
+        reference: 'Abridged Standard Atomic Weights (2024), https://www.ciaaw.org/abridged-atomic-weights.htm'
+        accessedAt: '2026-09-08'
+- symbol: He
+  atomicNumber: 2
+  nameKey: element.helium.name
+  atomicMass: { value: 4.0026, uncertainty: 0.0001 }
+  provenance:
+    sources:
+      - organization: CIAAW
+        reference: 'Abridged Standard Atomic Weights (2024), https://www.ciaaw.org/abridged-atomic-weights.htm'
+        accessedAt: '2026-09-08'
+- symbol: Li
+  atomicNumber: 3
+  nameKey: element.lithium.name
+  atomicMass: { value: 6.94, uncertainty: 0.06 }
+  provenance:
+    sources:
+      - organization: CIAAW
+        reference: 'Abridged Standard Atomic Weights (2024), https://www.ciaaw.org/abridged-atomic-weights.htm'
+        accessedAt: '2026-09-08'
+- symbol: Be
+  atomicNumber: 4
+  nameKey: element.beryllium.name
+  atomicMass: { value: 9.0122, uncertainty: 0.0001 }
+  provenance:
+    sources:
+      - organization: CIAAW
+        reference: 'Abridged Standard Atomic Weights (2024), https://www.ciaaw.org/abridged-atomic-weights.htm'
+        accessedAt: '2026-09-08'
+- symbol: B
+  atomicNumber: 5
+  nameKey: element.boron.name
+  atomicMass: { value: 10.81, uncertainty: 0.02 }
+  provenance:
+    sources:
+      - organization: CIAAW
+        reference: 'Abridged Standard Atomic Weights (2024), https://www.ciaaw.org/abridged-atomic-weights.htm'
+        accessedAt: '2026-09-08'
+- symbol: C
+  atomicNumber: 6
+  nameKey: element.carbon.name
+  atomicMass: { value: 12.011, uncertainty: 0.002 }
+  provenance:
+    sources:
+      - organization: CIAAW
+        reference: 'Abridged Standard Atomic Weights (2024), https://www.ciaaw.org/abridged-atomic-weights.htm'
+        accessedAt: '2026-09-08'
+- symbol: N
+  atomicNumber: 7
+  nameKey: element.nitrogen.name
+  atomicMass: { value: 14.007, uncertainty: 0.001 }
+  provenance:
+    sources:
+      - organization: CIAAW
+        reference: 'Abridged Standard Atomic Weights (2024), https://www.ciaaw.org/abridged-atomic-weights.htm'
+        accessedAt: '2026-09-08'
+- symbol: O
+  atomicNumber: 8
+  nameKey: element.oxygen.name
+  atomicMass: { value: 15.999, uncertainty: 0.001 }
+  provenance:
+    sources:
+      - organization: CIAAW
+        reference: 'Abridged Standard Atomic Weights (2024), https://www.ciaaw.org/abridged-atomic-weights.htm'
+        accessedAt: '2026-09-08'
+- symbol: F
+  atomicNumber: 9
+  nameKey: element.fluorine.name
+  atomicMass: { value: 18.998, uncertainty: 0.001 }
+  provenance:
+    sources:
+      - organization: CIAAW
+        reference: 'Abridged Standard Atomic Weights (2024), https://www.ciaaw.org/abridged-atomic-weights.htm'
+        accessedAt: '2026-09-08'
+- symbol: Ne
+  atomicNumber: 10
+  nameKey: element.neon.name
+  atomicMass: { value: 20.180, uncertainty: 0.001 }
+  provenance:
+    sources:
+      - organization: CIAAW
+        reference: 'Abridged Standard Atomic Weights (2024), https://www.ciaaw.org/abridged-atomic-weights.htm'
+        accessedAt: '2026-09-08'
+- symbol: Na
+  atomicNumber: 11
+  nameKey: element.sodium.name
+  atomicMass: { value: 22.990, uncertainty: 0.001 }
+  provenance:
+    sources:
+      - organization: CIAAW
+        reference: 'Abridged Standard Atomic Weights (2024), https://www.ciaaw.org/abridged-atomic-weights.htm'
+        accessedAt: '2026-09-08'
+- symbol: Mg
+  atomicNumber: 12
+  nameKey: element.magnesium.name
+  atomicMass: { value: 24.305, uncertainty: 0.002 }
+  provenance:
+    sources:
+      - organization: CIAAW
+        reference: 'Abridged Standard Atomic Weights (2024), https://www.ciaaw.org/abridged-atomic-weights.htm'
+        accessedAt: '2026-09-08'
+- symbol: Al
+  atomicNumber: 13
+  nameKey: element.aluminium.name
+  atomicMass: { value: 26.982, uncertainty: 0.001 }
+  provenance:
+    sources:
+      - organization: CIAAW
+        reference: 'Abridged Standard Atomic Weights (2024), https://www.ciaaw.org/abridged-atomic-weights.htm'
+        accessedAt: '2026-09-08'
+- symbol: Si
+  atomicNumber: 14
+  nameKey: element.silicon.name
+  atomicMass: { value: 28.085, uncertainty: 0.001 }
+  provenance:
+    sources:
+      - organization: CIAAW
+        reference: 'Abridged Standard Atomic Weights (2024), https://www.ciaaw.org/abridged-atomic-weights.htm'
+        accessedAt: '2026-09-08'
+- symbol: P
+  atomicNumber: 15
+  nameKey: element.phosphorus.name
+  atomicMass: { value: 30.974, uncertainty: 0.001 }
+  provenance:
+    sources:
+      - organization: CIAAW
+        reference: 'Abridged Standard Atomic Weights (2024), https://www.ciaaw.org/abridged-atomic-weights.htm'
+        accessedAt: '2026-09-08'
+- symbol: S
+  atomicNumber: 16
+  nameKey: element.sulfur.name
+  atomicMass: { value: 32.06, uncertainty: 0.02 }
+  provenance:
+    sources:
+      - organization: CIAAW
+        reference: 'Abridged Standard Atomic Weights (2024), https://www.ciaaw.org/abridged-atomic-weights.htm'
+        accessedAt: '2026-09-08'
+- symbol: Cl
+  atomicNumber: 17
+  nameKey: element.chlorine.name
+  atomicMass: { value: 35.45, uncertainty: 0.01 }
+  provenance:
+    sources:
+      - organization: CIAAW
+        reference: 'Abridged Standard Atomic Weights (2024), https://www.ciaaw.org/abridged-atomic-weights.htm'
+        accessedAt: '2026-09-08'
+- symbol: Ar
+  atomicNumber: 18
+  nameKey: element.argon.name
+  atomicMass: { value: 39.95, uncertainty: 0.16 }
+  provenance:
+    sources:
+      - organization: CIAAW
+        reference: 'Abridged Standard Atomic Weights (2024), https://www.ciaaw.org/abridged-atomic-weights.htm'
+        accessedAt: '2026-09-08'
+- symbol: K
+  atomicNumber: 19
+  nameKey: element.potassium.name
+  atomicMass: { value: 39.098, uncertainty: 0.001 }
+  provenance:
+    sources:
+      - organization: CIAAW
+        reference: 'Abridged Standard Atomic Weights (2024), https://www.ciaaw.org/abridged-atomic-weights.htm'
+        accessedAt: '2026-09-08'
+- symbol: Ca
+  atomicNumber: 20
+  nameKey: element.calcium.name
+  atomicMass: { value: 40.078, uncertainty: 0.004 }
+  provenance:
+    sources:
+      - organization: CIAAW
+        reference: 'Abridged Standard Atomic Weights (2024), https://www.ciaaw.org/abridged-atomic-weights.htm'
+        accessedAt: '2026-09-08'
+- symbol: Sc
+  atomicNumber: 21
+  nameKey: element.scandium.name
+  atomicMass: { value: 44.956, uncertainty: 0.001 }
+  provenance:
+    sources:
+      - organization: CIAAW
+        reference: 'Abridged Standard Atomic Weights (2024), https://www.ciaaw.org/abridged-atomic-weights.htm'
+        accessedAt: '2026-09-08'
+- symbol: Ti
+  atomicNumber: 22
+  nameKey: element.titanium.name
+  atomicMass: { value: 47.867, uncertainty: 0.001 }
+  provenance:
+    sources:
+      - organization: CIAAW
+        reference: 'Abridged Standard Atomic Weights (2024), https://www.ciaaw.org/abridged-atomic-weights.htm'
+        accessedAt: '2026-09-08'
+- symbol: V
+  atomicNumber: 23
+  nameKey: element.vanadium.name
+  atomicMass: { value: 50.942, uncertainty: 0.001 }
+  provenance:
+    sources:
+      - organization: CIAAW
+        reference: 'Abridged Standard Atomic Weights (2024), https://www.ciaaw.org/abridged-atomic-weights.htm'
+        accessedAt: '2026-09-08'
+- symbol: Cr
+  atomicNumber: 24
+  nameKey: element.chromium.name
+  atomicMass: { value: 51.996, uncertainty: 0.001 }
+  provenance:
+    sources:
+      - organization: CIAAW
+        reference: 'Abridged Standard Atomic Weights (2024), https://www.ciaaw.org/abridged-atomic-weights.htm'
+        accessedAt: '2026-09-08'
+- symbol: Mn
+  atomicNumber: 25
+  nameKey: element.manganese.name
+  atomicMass: { value: 54.938, uncertainty: 0.001 }
+  provenance:
+    sources:
+      - organization: CIAAW
+        reference: 'Abridged Standard Atomic Weights (2024), https://www.ciaaw.org/abridged-atomic-weights.htm'
+        accessedAt: '2026-09-08'
+- symbol: Fe
+  atomicNumber: 26
+  nameKey: element.iron.name
+  atomicMass: { value: 55.845, uncertainty: 0.002 }
+  provenance:
+    sources:
+      - organization: CIAAW
+        reference: 'Abridged Standard Atomic Weights (2024), https://www.ciaaw.org/abridged-atomic-weights.htm'
+        accessedAt: '2026-09-08'
+- symbol: Co
+  atomicNumber: 27
+  nameKey: element.cobalt.name
+  atomicMass: { value: 58.933, uncertainty: 0.001 }
+  provenance:
+    sources:
+      - organization: CIAAW
+        reference: 'Abridged Standard Atomic Weights (2024), https://www.ciaaw.org/abridged-atomic-weights.htm'
+        accessedAt: '2026-09-08'
+- symbol: Ni
+  atomicNumber: 28
+  nameKey: element.nickel.name
+  atomicMass: { value: 58.693, uncertainty: 0.001 }
+  provenance:
+    sources:
+      - organization: CIAAW
+        reference: 'Abridged Standard Atomic Weights (2024), https://www.ciaaw.org/abridged-atomic-weights.htm'
+        accessedAt: '2026-09-08'
+- symbol: Cu
+  atomicNumber: 29
+  nameKey: element.copper.name
+  atomicMass: { value: 63.546, uncertainty: 0.003 }
+  provenance:
+    sources:
+      - organization: CIAAW
+        reference: 'Abridged Standard Atomic Weights (2024), https://www.ciaaw.org/abridged-atomic-weights.htm'
+        accessedAt: '2026-09-08'
+- symbol: Zn
+  atomicNumber: 30
+  nameKey: element.zinc.name
+  atomicMass: { value: 65.38, uncertainty: 0.02 }
+  provenance:
+    sources:
+      - organization: CIAAW
+        reference: 'Abridged Standard Atomic Weights (2024), https://www.ciaaw.org/abridged-atomic-weights.htm'
+        accessedAt: '2026-09-08'
+- symbol: Ga
+  atomicNumber: 31
+  nameKey: element.gallium.name
+  atomicMass: { value: 69.723, uncertainty: 0.001 }
+  provenance:
+    sources:
+      - organization: CIAAW
+        reference: 'Abridged Standard Atomic Weights (2024), https://www.ciaaw.org/abridged-atomic-weights.htm'
+        accessedAt: '2026-09-08'
+- symbol: Ge
+  atomicNumber: 32
+  nameKey: element.germanium.name
+  atomicMass: { value: 72.630, uncertainty: 0.008 }
+  provenance:
+    sources:
+      - organization: CIAAW
+        reference: 'Abridged Standard Atomic Weights (2024), https://www.ciaaw.org/abridged-atomic-weights.htm'
+        accessedAt: '2026-09-08'
+- symbol: As
+  atomicNumber: 33
+  nameKey: element.arsenic.name
+  atomicMass: { value: 74.922, uncertainty: 0.001 }
+  provenance:
+    sources:
+      - organization: CIAAW
+        reference: 'Abridged Standard Atomic Weights (2024), https://www.ciaaw.org/abridged-atomic-weights.htm'
+        accessedAt: '2026-09-08'
+- symbol: Se
+  atomicNumber: 34
+  nameKey: element.selenium.name
+  atomicMass: { value: 78.971, uncertainty: 0.008 }
+  provenance:
+    sources:
+      - organization: CIAAW
+        reference: 'Abridged Standard Atomic Weights (2024), https://www.ciaaw.org/abridged-atomic-weights.htm'
+        accessedAt: '2026-09-08'
+- symbol: Br
+  atomicNumber: 35
+  nameKey: element.bromine.name
+  atomicMass: { value: 79.904, uncertainty: 0.003 }
+  provenance:
+    sources:
+      - organization: CIAAW
+        reference: 'Abridged Standard Atomic Weights (2024), https://www.ciaaw.org/abridged-atomic-weights.htm'
+        accessedAt: '2026-09-08'
+- symbol: Kr
+  atomicNumber: 36
+  nameKey: element.krypton.name
+  atomicMass: { value: 83.798, uncertainty: 0.002 }
+  provenance:
+    sources:
+      - organization: CIAAW
+        reference: 'Abridged Standard Atomic Weights (2024), https://www.ciaaw.org/abridged-atomic-weights.htm'
+        accessedAt: '2026-09-08'
+- symbol: Ag
+  atomicNumber: 47
+  nameKey: element.silver.name
+  atomicMass: { value: 107.87, uncertainty: 0.01 }
+  provenance:
+    sources:
+      - organization: CIAAW
+        reference: 'Abridged Standard Atomic Weights (2024), https://www.ciaaw.org/abridged-atomic-weights.htm'
+        accessedAt: '2026-09-08'
+- symbol: Sn
+  atomicNumber: 50
+  nameKey: element.tin.name
+  atomicMass: { value: 118.71, uncertainty: 0.01 }
+  provenance:
+    sources:
+      - organization: CIAAW
+        reference: 'Abridged Standard Atomic Weights (2024), https://www.ciaaw.org/abridged-atomic-weights.htm'
+        accessedAt: '2026-09-08'
+- symbol: I
+  atomicNumber: 53
+  nameKey: element.iodine.name
+  atomicMass: { value: 126.90, uncertainty: 0.01 }
+  provenance:
+    sources:
+      - organization: CIAAW
+        reference: 'Abridged Standard Atomic Weights (2024), https://www.ciaaw.org/abridged-atomic-weights.htm'
+        accessedAt: '2026-09-08'
+- symbol: Ba
+  atomicNumber: 56
+  nameKey: element.barium.name
+  atomicMass: { value: 137.33, uncertainty: 0.01 }
+  provenance:
+    sources:
+      - organization: CIAAW
+        reference: 'Abridged Standard Atomic Weights (2024), https://www.ciaaw.org/abridged-atomic-weights.htm'
+        accessedAt: '2026-09-08'
+- symbol: Pt
+  atomicNumber: 78
+  nameKey: element.platinum.name
+  atomicMass: { value: 195.08, uncertainty: 0.02 }
+  provenance:
+    sources:
+      - organization: CIAAW
+        reference: 'Abridged Standard Atomic Weights (2024), https://www.ciaaw.org/abridged-atomic-weights.htm'
+        accessedAt: '2026-09-08'
+- symbol: Au
+  atomicNumber: 79
+  nameKey: element.gold.name
+  atomicMass: { value: 196.97, uncertainty: 0.01 }
+  provenance:
+    sources:
+      - organization: CIAAW
+        reference: 'Abridged Standard Atomic Weights (2024), https://www.ciaaw.org/abridged-atomic-weights.htm'
+        accessedAt: '2026-09-08'
+- symbol: Hg
+  atomicNumber: 80
+  nameKey: element.mercury.name
+  atomicMass: { value: 200.59, uncertainty: 0.01 }
+  provenance:
+    sources:
+      - organization: CIAAW
+        reference: 'Abridged Standard Atomic Weights (2024), https://www.ciaaw.org/abridged-atomic-weights.htm'
+        accessedAt: '2026-09-08'
+- symbol: Pb
+  atomicNumber: 82
+  nameKey: element.lead.name
+  atomicMass: { value: 207.2, uncertainty: 1.1 }
+  provenance:
+    sources:
+      - organization: CIAAW
+        reference: 'Abridged Standard Atomic Weights (2024), https://www.ciaaw.org/abridged-atomic-weights.htm'
+        accessedAt: '2026-09-08'
