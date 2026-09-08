@@ -8,7 +8,8 @@ export type ChemistryErrorCode =
   | 'CHEM003' // Invalid formula syntax
   | 'CHEM004' // Invalid equation syntax
   | 'CHEM005' // Charge not conserved
-  | 'CHEM008'; // Balancing system unsolvable or ambiguous
+  | 'CHEM008' // Balancing system unsolvable or ambiguous
+  | 'CHEM010'; // Atomic number out of range (not 1-118)
 
 export class ChemistryError extends Error {
   readonly code: ChemistryErrorCode;
