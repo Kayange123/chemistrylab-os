@@ -1,14 +1,15 @@
-import { useMemo, useState } from 'react';
 import {
-  ChemistryError,
   balanceEquation,
+  ChemistryError,
+  type ConservationResult,
   parseEquation,
   parseFormula,
   validateConservation,
-  type ConservationResult,
 } from '@chemistrylab/core';
-import { REACTIONS } from './reactions';
+import { useMemo, useState } from 'react';
+
 import { t } from './i18n';
+import { REACTIONS } from './reactions';
 
 const DEFAULT_EQUATION = 'H2 + O2 -> H2O';
 

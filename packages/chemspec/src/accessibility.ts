@@ -1,4 +1,5 @@
 import { z } from 'zod';
+
 import { i18nKeySchema } from './i18n.js';
 
 /**

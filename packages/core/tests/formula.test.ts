@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
-import { parseFormula } from '../src/formula.js';
+
 import { ChemistryError } from '../src/errors.js';
+import { parseFormula } from '../src/formula.js';
 
 describe('parseFormula', () => {
   it('parses a simple molecule', () => {

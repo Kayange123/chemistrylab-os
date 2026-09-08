@@ -1,8 +1,8 @@
 import { parseEquation } from './equation.js';
-import { parseFormula } from './formula.js';
 import { ChemistryError } from './errors.js';
-import * as F from './fraction.js';
+import { parseFormula } from './formula.js';
 import type { Fraction } from './fraction.js';
+import * as F from './fraction.js';
 
 export interface BalanceResult {
   readonly balanced: true;

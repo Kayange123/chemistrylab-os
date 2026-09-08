@@ -1,7 +1,8 @@
 import { z } from 'zod';
-import { CHEMSPEC_VERSION } from './version.js';
+
 import { i18nKeySchema } from './i18n.js';
 import { provenanceSchema } from './provenance.js';
+import { CHEMSPEC_VERSION } from './version.js';
 
 /**
  * IUPAC/CIAAW *abridged* standard atomic weight: a single representative

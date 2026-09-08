@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
+
+import { countAtoms, validateConservation } from '../src/conservation.js';
 import { parseEquation } from '../src/equation.js';
-import { validateConservation, countAtoms } from '../src/conservation.js';
 
 describe('validateConservation', () => {
   it('reports an unbalanced equation with per-element differences', () => {

@@ -1,5 +1,5 @@
-import { parseFormula } from './formula.js';
 import type { EquationTerm } from './equation.js';
+import { parseFormula } from './formula.js';
 
 export type AtomCounts = Readonly<Record<string, number>>;
 

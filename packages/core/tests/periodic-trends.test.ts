@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
-import { getGroup, getPeriod } from '../src/periodic-trends.js';
+
 import { ChemistryError } from '../src/errors.js';
+import { getGroup, getPeriod } from '../src/periodic-trends.js';
 
 describe('getPeriod', () => {
   it('places hydrogen and helium in period 1', () => {

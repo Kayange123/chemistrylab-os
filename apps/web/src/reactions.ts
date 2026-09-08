@@ -1,5 +1,5 @@
-import { parse } from 'yaml';
 import { reactionSchema, type ReactionSpec } from '@chemistrylab/chemspec';
+import { parse } from 'yaml';
 
 /**
  * Loads every curated reaction directly from datasets/reactions/*.yaml —
