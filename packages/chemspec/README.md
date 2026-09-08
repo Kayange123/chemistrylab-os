@@ -42,6 +42,15 @@ unless it carries at least one source citation — see
 level, not by convention, because "trust the dataset" is not a safe default
 for a science education platform.
 
+## Measured properties need their own citation
+
+A field like `element.atomicMass` is optional, but if it's set, that
+element's `provenance.sources` must be non-empty — regardless of
+`scientificStatus`. This is stricter than the verified-needs-sources rule
+above: an unreviewed _category_ claim (e.g. a reaction family) is honest
+as a bare `unverified` guess, but an unreviewed _number_ with no source at
+all isn't reviewable by anyone. See `DATA_SOURCES.md`.
+
 ## i18n keys, not strings
 
 ChemSpec documents never contain human-facing text — only dot-separated
