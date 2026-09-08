@@ -10,3 +10,4 @@ export {
 } from './conservation.js';
 export { balanceEquation, type BalanceResult } from './balance.js';
 export { KNOWN_ELEMENTS, KNOWN_ELEMENT_SYMBOLS, type KnownElement } from './generated/elements.js';
+export { getPeriod, getGroup } from './periodic-trends.js';

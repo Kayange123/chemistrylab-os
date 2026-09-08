@@ -4,7 +4,7 @@ Every validation failure in the chemistry engine and dataset validator has a
 stable, machine-readable code, so tooling (CI, editor integrations, future
 AI agents) can react to a specific failure rather than parsing prose.
 
-Codes `CHEM001`–`CHEM005` and `CHEM008` are thrown as
+Codes `CHEM001`–`CHEM005`, `CHEM008`, and `CHEM010` are thrown as
 `ChemistryError` by `@chemistrylab/core` (see `packages/core/src/errors.ts`)
 and can occur at runtime, e.g. in the web playground. Codes `CHEM006`,
 `CHEM007`, and `CHEM009` are reported only by `pnpm validate:data`
@@ -22,6 +22,7 @@ things a running application encounters.
 | CHEM007 | Missing required metadata — an i18n key (`titleKey`, `accessibility.descriptionKey`, or a `learning.conceptKeys` entry) has no entry in `datasets/i18n/en.json`.                                                                                                                                                                        | `validate:data`                                |
 | CHEM008 | Equation balancing failed — the atom-count linear system has no solution, or more than one degree of freedom (ambiguous / underdetermined; needs a manual or auxiliary-constraint balance).                                                                                                                                             | `balanceEquation` (core)                       |
 | CHEM009 | (Warning, not an error) A reaction's file name doesn't match its `id`. Cosmetic — kept so the dataset directory stays browsable by id.                                                                                                                                                                                                  | `validate:data`                                |
+| CHEM010 | Atomic number out of range — not an integer from 1 to 118.                                                                                                                                                                                                                                                                              | `getPeriod`, `getGroup` (core)                 |
 
 ## Example: CHEM001
 
