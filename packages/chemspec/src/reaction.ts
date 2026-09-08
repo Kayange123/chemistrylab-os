@@ -1,8 +1,9 @@
 import { z } from 'zod';
-import { CHEMSPEC_VERSION } from './version.js';
-import { i18nKeySchema } from './i18n.js';
+
 import { accessibilityDescriptionSchema } from './accessibility.js';
+import { i18nKeySchema } from './i18n.js';
 import { provenanceSchema } from './provenance.js';
+import { CHEMSPEC_VERSION } from './version.js';
 
 /**
  * A single reactant or product term in a chemical equation.

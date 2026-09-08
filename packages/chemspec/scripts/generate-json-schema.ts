@@ -13,13 +13,15 @@
  * Run via `pnpm generate:schemas`. CI re-runs this and fails the build if
  * the committed output would change, so the two never drift.
  */
-import { writeFileSync, mkdirSync } from 'node:fs';
-import { fileURLToPath } from 'node:url';
+import { mkdirSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
 import { z } from 'zod';
-import { CHEMSPEC_VERSION } from '../src/version.js';
+
 import { elementSchema } from '../src/element.js';
 import { reactionSchema } from '../src/reaction.js';
+import { CHEMSPEC_VERSION } from '../src/version.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const outDir = path.join(__dirname, '..', 'schemas', CHEMSPEC_VERSION);

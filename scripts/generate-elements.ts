@@ -9,7 +9,9 @@
  */
 import { readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
+
 import { parse } from 'yaml';
+
 import { elementDatasetSchema } from '../packages/chemspec/src/element.js';
 
 const repoRoot = path.resolve(import.meta.dirname, '..');

@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+
 import { balanceEquation } from '../src/balance.js';
 import { validateConservation } from '../src/conservation.js';
 import { parseEquation } from '../src/equation.js';

@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { expect, test } from '@playwright/test';
 
 // The golden path from the founding brief's §8 user journey, condensed to
 // what v0.1 actually implements: open the playground, load a curated

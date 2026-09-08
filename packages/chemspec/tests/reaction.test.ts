@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+
 import { reactionSchema } from '../src/reaction.js';
 
 const validReaction = {

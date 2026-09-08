@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+
 import { parseEquation } from '../src/equation.js';
 import { ChemistryError } from '../src/errors.js';
 

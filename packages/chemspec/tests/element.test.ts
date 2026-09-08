@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+
 import { elementSchema } from '../src/element.js';
 
 const validElement = {

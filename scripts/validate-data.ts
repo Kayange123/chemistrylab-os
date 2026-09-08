@@ -7,14 +7,16 @@
  * Error codes are documented in docs/error-codes.md — keep the two files
  * in sync when adding a check.
  */
-import { readFileSync, readdirSync } from 'node:fs';
+import { readdirSync, readFileSync } from 'node:fs';
 import path from 'node:path';
+
 import { parse } from 'yaml';
+
 import { elementDatasetSchema } from '../packages/chemspec/src/element.js';
 import { reactionSchema, type ReactionSpec } from '../packages/chemspec/src/reaction.js';
-import { parseFormula } from '../packages/core/src/formula.js';
 import { validateConservation } from '../packages/core/src/conservation.js';
 import { ChemistryError } from '../packages/core/src/errors.js';
+import { parseFormula } from '../packages/core/src/formula.js';
 
 const repoRoot = path.resolve(import.meta.dirname, '..');
 
