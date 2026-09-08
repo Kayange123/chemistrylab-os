@@ -32,7 +32,7 @@ export const reviewSchema = z.strictObject({
 export type Review = z.infer<typeof reviewSchema>;
 
 export const provenanceSchema = z
-  .object({
+  .strictObject({
     sources: z.array(sourceSchema).default([]),
     review: reviewSchema.default({ scientificStatus: 'unverified' }),
   })
