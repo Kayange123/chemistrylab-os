@@ -57,11 +57,12 @@ record a citation.
 
 Only include a numeric value (temperature, enthalpy, concentration, etc.)
 if you can cite where it came from. An omitted field is always safer than
-an invented number. This is why, for example, `datasets/elements/`
-currently ships only symbol and atomic number — those are immutable
-facts, not measurements, so there's no fabrication risk — and atomic
-mass/electronegativity are deferred to Phase 1 rather than shipped with
-invented precision. See `ARCHITECTURE.md` and `ROADMAP.md`.
+an invented number. `datasets/elements/`'s `atomicMass` follows this: it
+carries a real citation (CIAAW's Abridged Standard Atomic Weights) and
+the source's own published uncertainty per element, rather than a bare
+invented-precision number — see `DATA_SOURCES.md`. Electronegativity and
+other measured properties remain deferred rather than shipped without a
+source. See `ARCHITECTURE.md` and `ROADMAP.md`.
 
 ## Educational simplification, stated honestly
 

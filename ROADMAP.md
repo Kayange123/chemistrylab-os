@@ -25,9 +25,11 @@ not when a box is checked. See `ARCHITECTURE.md` for what already exists.
 
 ## Phase 1 — Elements
 
-- Element dataset grows beyond symbol + atomic number: atomic mass,
-  electronegativity, common oxidation states, etc. — each with its own
-  provenance, since these are measurements, not immutable facts.
+- Element dataset grows beyond symbol + atomic number, each addition with
+  its own provenance since these are measurements, not immutable facts:
+  - [x] Atomic mass (all 44 elements, sourced from CIAAW)
+  - [ ] Electronegativity
+  - [ ] Common oxidation states
 - Periodic-trend queries built on `@chemistrylab/core`.
 - Element detail views; **Elementa** experience.
 
