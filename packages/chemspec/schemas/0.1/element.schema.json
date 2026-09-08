@@ -20,6 +20,72 @@
       "type": "string",
       "pattern": "^[a-z0-9]+(-[a-z0-9]+)*(\\.[a-z0-9]+(-[a-z0-9]+)*)+$",
       "description": "i18n key, e.g. \"element.hydrogen.name\"."
+    },
+    "atomicMass": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "provenance": {
+      "type": "object",
+      "properties": {
+        "sources": {
+          "default": [],
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "organization": {
+                "type": "string",
+                "minLength": 1
+              },
+              "reference": {
+                "type": "string",
+                "minLength": 1,
+                "description": "Title, DOI, URL, or textbook citation."
+              },
+              "accessedAt": {
+                "type": "string",
+                "format": "date",
+                "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))$"
+              }
+            },
+            "required": [
+              "organization",
+              "reference"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "review": {
+          "default": {
+            "scientificStatus": "unverified"
+          },
+          "type": "object",
+          "properties": {
+            "scientificStatus": {
+              "default": "unverified",
+              "type": "string",
+              "enum": [
+                "unverified",
+                "in-review",
+                "verified",
+                "disputed"
+              ]
+            },
+            "reviewedBy": {
+              "description": "GitHub handle of the reviewing chemist.",
+              "type": "string"
+            },
+            "lastVerifiedAt": {
+              "type": "string",
+              "format": "date",
+              "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))$"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
     }
   },
   "required": [
