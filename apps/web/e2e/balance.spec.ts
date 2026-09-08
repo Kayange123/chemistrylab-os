@@ -17,3 +17,15 @@ test('balances hydrogen combustion end to end', async ({ page }) => {
   await expect(page.getByLabel(/^equation$/i)).toHaveValue('2H2 + O2 -> 2H2O');
   await expect(page.getByText('✓ Balanced')).toBeVisible();
 });
+
+test('shows an element detail view on selection', async ({ page }) => {
+  await page.goto('/');
+
+  await page.getByLabel(/^element$/i).selectOption('Fe');
+
+  const detail = page.locator('.element-meta');
+  await expect(detail).toContainText('26'); // atomic number
+  await expect(detail).toContainText('4'); // period
+  await expect(detail).toContainText('8'); // group
+  await expect(detail).toContainText('unverified');
+});
