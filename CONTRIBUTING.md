@@ -117,6 +117,10 @@ document, or changes a public package API, needs an RFC — see
   scaffolding beyond what the current change needs.
 - Prettier + ESLint config in the repo is the source of truth; run
   `pnpm format` rather than hand-formatting.
+- Import order (external packages, then relative imports, each block
+  alphabetized) is enforced by ESLint, not Prettier — an editor's ESLint
+  auto-fix (or `npx eslint --fix <path>`) sorts them; `pnpm format` alone
+  won't.
 
 ## Where to find work
 

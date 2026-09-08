@@ -2,6 +2,7 @@
 import js from '@eslint/js';
 import tseslint from 'typescript-eslint';
 import reactHooks from 'eslint-plugin-react-hooks';
+import simpleImportSort from 'eslint-plugin-simple-import-sort';
 
 export default tseslint.config(
   {
@@ -16,9 +17,16 @@ export default tseslint.config(
   js.configs.recommended,
   ...tseslint.configs.recommended,
   {
+    plugins: { 'simple-import-sort': simpleImportSort },
     rules: {
       '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
       'no-console': ['warn', { allow: ['warn', 'error'] }],
+      // Groups: external packages, then relative imports, each block
+      // alphabetized. Auto-fixable via `eslint --fix` (an editor's ESLint
+      // integration, or `npx eslint --fix <path>`) — pnpm's `lint` script
+      // runs through turbo, which doesn't forward a bare --fix flag.
+      'simple-import-sort/imports': 'error',
+      'simple-import-sort/exports': 'error',
     },
   },
   {
