@@ -76,4 +76,13 @@ describe('reactionSchema', () => {
       }),
     ).toThrow();
   });
+
+  it('rejects an unknown property inside provenance', () => {
+    expect(() =>
+      reactionSchema.parse({
+        ...validReaction,
+        provenance: { sources: [], review: { scientificStatus: 'unverified' }, typoedField: true },
+      }),
+    ).toThrow();
+  });
 });
